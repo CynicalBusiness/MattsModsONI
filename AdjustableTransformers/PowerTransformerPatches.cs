@@ -23,7 +23,7 @@ namespace MattsMods.AdjustableTransformers
         {
             public static void Postfix(GameObject go)
             {
-                go.AddComponent<PowerTransformerAdjustable>().SetWattage(4000f);
+                go.AddComponent<PowerTransformerAdjustable>();
             }
         }
 
@@ -46,16 +46,6 @@ namespace MattsMods.AdjustableTransformers
             public static void Postfix(GameObject go)
             {
                 go.AddComponent<PowerTransformerAdjustable>();
-            }
-        }
-
-        [HarmonyPatch(typeof(PowerTransformerSmallConfig))]
-        [HarmonyPatch("DoPostConfigureComplete")]
-        private static class Patch_PowerTransformerSmallConfig_DoPostConfigureComplete
-        {
-            public static void Postfix(GameObject go)
-            {
-                go.AddOrGet<PowerTransformerAdjustable>().SetWattage(1000f);
             }
         }
     }

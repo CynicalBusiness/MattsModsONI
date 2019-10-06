@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustableTransformers", "AdjustableTransformers\AdjustableTransformers.csproj", "{76D2C931-F00E-499C-BA15-6810316B80A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationFundementals", "IndustrializationFundementals\IndustrializationFundementals.csproj", "{247F788E-6C54-483D-843A-C99F2187DFB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{76D2C931-F00E-499C-BA15-6810316B80A5}.Debug|Any CPU.Build.0 = Dev|Any CPU
 		{76D2C931-F00E-499C-BA15-6810316B80A5}.Release|Any CPU.ActiveCfg = Dev|Any CPU
 		{76D2C931-F00E-499C-BA15-6810316B80A5}.Release|Any CPU.Build.0 = Dev|Any CPU
+		{247F788E-6C54-483D-843A-C99F2187DFB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247F788E-6C54-483D-843A-C99F2187DFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247F788E-6C54-483D-843A-C99F2187DFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247F788E-6C54-483D-843A-C99F2187DFB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

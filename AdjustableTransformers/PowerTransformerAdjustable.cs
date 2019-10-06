@@ -1,6 +1,7 @@
 using Harmony;
 using KSerialization;
 using STRINGS;
+using System.Diagnostics;
 
 namespace MattsMods.AdjustableTransformers
 {
@@ -15,10 +16,10 @@ namespace MattsMods.AdjustableTransformers
         /// <summary>
         /// The value this slider is currently set to
         /// </summary>
-        [field: Serialize]
+        [Serialize]
         public float WattageVal { get; set; }
 
-        [MyCmpGet]
+        [MyCmpReq]
         public PowerTransformer powerTransformer;
 
         public int SliderDecimalPlaces(int i)
@@ -43,16 +44,16 @@ namespace MattsMods.AdjustableTransformers
 
         public string GetSliderTooltipKey(int i)
         {
-            return TOOLTIP.key.ToString();
+            return TOOLTIP.key.String;
         }
 
         public string GetSliderTooltip()
         {
-            return $"Transformer output wattage will be capped at {UI.PRE_KEYWORD}{WattageVal} kW{UI.PST_KEYWORD}.";
+            return $"Transformer output wattage will be capped at {UI.FormatAsKeyWord(WattageVal + SliderUnits)}.";
         }
 
-        public string SliderTitleKey => TITLE.key.ToString();
-        public string SliderUnits => " kW";
+        public string SliderTitleKey => TITLE.key.String;
+        public string SliderUnits => UI.UNITSUFFIXES.ELECTRICAL.KILOWATT;
 
         public void SetSliderValue(float val, int i)
         {
