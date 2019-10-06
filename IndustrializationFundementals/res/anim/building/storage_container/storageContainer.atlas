@@ -1,0 +1,27 @@
+
+storageContainer.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+place
+  rotate: false
+  xy: 2, 404
+  size: 610, 310
+  orig: 610, 310
+  offset: 0, 0
+  index: 0
+temp
+  rotate: false
+  xy: 2, 92
+  size: 610, 310
+  orig: 610, 310
+  offset: 0, 0
+  index: 0
+ui
+  rotate: false
+  xy: 614, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 0

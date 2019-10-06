@@ -43,6 +43,10 @@ namespace MattsMods.IndustrializationFundementals
             var techStorage = TechTree.CreateTech("IndustrialStorage");
             TechTree.AddRequirement(techStorage, TechTree.GetTech("BasicRefinement"));
 
+            var techStorage2 = TechTree.CreateTech("HeavyStorage");
+            TechTree.AddRequirement(techStorage2, TechTree.GetTech("Smelting"));
+            TechTree.AddRequirement(techStorage2, TechTree.GetTech("SmartStorage"));
+
             // add buildings to their appropriate tech and plan screen
             BuildingManager.AddToPlanMenu(StorageCrateConfig.ID, "Base", "StorageLockerSmart");
             BuildingManager.AddToTech(StorageCrateConfig.ID, techStorage.Id);
@@ -52,6 +56,9 @@ namespace MattsMods.IndustrializationFundementals
 
             BuildingManager.AddToPlanMenu(StorageSkipConfig.ID, "Base", StorageSiloConfig.ID);
             BuildingManager.AddToTech(StorageSkipConfig.ID, techStorage.Id);
+
+            BuildingManager.AddToPlanMenu(StorageContainerConfig.ID, "Base", StorageSkipConfig.ID);
+            BuildingManager.AddToTech(StorageContainerConfig.ID, techStorage2.Id);
         }
 
         public override void PostInitialize()
@@ -76,6 +83,16 @@ namespace MattsMods.IndustrializationFundementals
                     // Fertilizer is a soil
                     ElementLoader.FindElementByHash(SimHashes.Fertilizer),
                     GameTags.Farmable
+                },
+                {
+                    // Steel is an alloy
+                    ElementLoader.FindElementByHash(SimHashes.Steel),
+                    GameTags.Alloy
+                },
+                {
+                    // Thermium is an alloy
+                    ElementLoader.FindElementByHash(SimHashes.TempConductorSolid),
+                    GameTags.Alloy
                 }
             });
 
