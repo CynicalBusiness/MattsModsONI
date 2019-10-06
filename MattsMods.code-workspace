@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Matt's Mods",
+			"path": "."
+		},
+		{
+			"name": "PipLib",
+			"path": "../PipLib"
+		}
+	],
+	"settings": {}
+}
