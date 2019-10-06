@@ -1,0 +1,71 @@
+elements:
+  - elementId: CharcoalSolid
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 1
+    highTemp: 973.15 # 300C
+    highTempTransitionTarget: AshSolid
+    defaultTemperature: 290
+    defaultMass: 100
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: ConsumableOre
+    tags:
+      - Coal
+      - CombustableSolid
+    buildMenuSort: 3
+    isDisabled: false
+    state: Solid
+    localizationID: STRINGS.ELEMENTS.CHARCOALSOLID.NAME
+
+  - elementId: AshSolid
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.2
+    highTemp: 1683
+    highTempTransitionTarget: Magma
+    defaultTemperature: 290
+    defaultMass: 100
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: Filter
+    tags:
+      - Powder
+      - Unstable
+    buildMenuSort: 3
+    isDisabled: false
+    state: Solid
+    localizationID: STRINGS.ELEMENTS.ASHSOLID.NAME
+
+  - elementId: LumberArborSolid
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1.2
+    liquidSurfaceAreaMultiplier: 1.2
+    gasSurfaceAreaMultiplier: 1.2
+    strength: 1
+    highTemp: 573.15 # 300C
+    highTempTransitionTarget: CharcoalSolid
+    defaultTemperature: 290
+    defaultMass: 200
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: WoodLogs
+    tags:
+      - CombustableSolid
+    buildMenuSort: 1
+    isDisabled: false
+    state: Solid
+    localizationID: STRINGS.ELEMENTS.LUMBERARBORSOLID.NAME

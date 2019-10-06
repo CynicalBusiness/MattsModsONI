@@ -19,6 +19,8 @@ namespace MattsMods.IndustrializationFundementals
             public static readonly Tag Crystal = TagManager.Create(nameof(Crystal));
             public static readonly Tag Powder = TagManager.Create(nameof(Powder));
             public static readonly Tag Silt = TagManager.Create(nameof(Silt));
+            public static readonly Tag WoodLogs = TagManager.Create(nameof(WoodLogs));
+            public static readonly Tag Lumber = TagManager.Create(nameof(Lumber));
         }
 
         public override string Name => "Matt's Mods: Industrialization Fundementals";
@@ -30,15 +32,22 @@ namespace MattsMods.IndustrializationFundementals
         public override void Load()
         {
             ModLogger = Logger;
+
+            // register strings
+            LocString.CreateLocStringKeys(typeof(STRINGS.BUILDINGS));
+            LocString.CreateLocStringKeys(typeof(STRINGS.ELEMENTS));
+            LocString.CreateLocStringKeys(typeof(STRINGS.RESEARCH));
+            LocString.CreateLocStringKeys(typeof(STRINGS.MISC));
+
+            GameTags.MaterialCategories.Add(Tags.Gems);
+            GameTags.MaterialCategories.Add(Tags.Crystal);
+            GameTags.MaterialCategories.Add(Tags.Silt);
+            GameTags.MaterialCategories.Add(Tags.WoodLogs);
+            GameTags.MaterialCategories.Add(Tags.Lumber);
         }
 
         public override void Initialize()
         {
-            // register strings
-            LocString.CreateLocStringKeys(typeof(STRINGS.BUILDINGS));
-            LocString.CreateLocStringKeys(typeof(STRINGS.RESEARCH));
-            LocString.CreateLocStringKeys(typeof(STRINGS.MISC));
-
             // create techs
             var techStorage = TechTree.CreateTech("IndustrialStorage");
             TechTree.AddRequirement(techStorage, TechTree.GetTech("BasicRefinement"));
@@ -67,16 +76,11 @@ namespace MattsMods.IndustrializationFundementals
                 {
                     // Sand is a powder
                     ElementLoader.FindElementByHash(SimHashes.Sand),
-                    Tags.Powder
+                    Tags.Silt
                 },
                 {
                     // Regolith is a silt
                     ElementLoader.FindElementByHash(SimHashes.Regolith),
-                    Tags.Silt
-                },
-                {
-                    // Salt is a silt
-                    ElementLoader.FindElementByHash(SimHashes.Salt),
                     Tags.Silt
                 },
                 {
@@ -97,6 +101,7 @@ namespace MattsMods.IndustrializationFundementals
             });
 
             ElementLoader.FindElementByHash(SimHashes.Diamond).tag = Tags.Gems;
+            ElementLoader.FindElementByHash(SimHashes.Salt).tag = Tags.Silt;
         }
     }
 }

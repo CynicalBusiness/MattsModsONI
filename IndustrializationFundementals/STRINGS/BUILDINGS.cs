@@ -37,6 +37,11 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
                 public static LocString DESC = "A huge container designed to store resources in bulk. These containers can be stacked atop one-another, can be walked on, and have a ladder for easy access.";
                 public static LocString EFFECT = "A large modular storage solution.";
             }
+
+            public static class KILN
+            {
+                public static LocString RECIPE_CHARCOAL_DESCRIPTION = "Bakes {0} into {1} and a small amount of {2}.";
+            }
         }
 
     }
