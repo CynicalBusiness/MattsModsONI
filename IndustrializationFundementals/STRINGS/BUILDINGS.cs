@@ -45,6 +45,13 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
                 public static LocString EFFECT = $"Initial processing station for {FormatAsLink("Wood", Tags.WoodLogs.Name)}.";
             }
 
+            public static class SCAFFOLDING
+            {
+                public static LocString NAME = FormatAsLink("Scaffolding", nameof(SCAFFOLDING));
+                public static LocString DESC = "A climable structure that can be easily removed in bulk. Great for temporary pathways during construction.";
+                public static LocString EFFECT = "Desconstructing a scaffold will also deconstruct all scaffolds marked for deconstruct connected to it.";
+            }
+
             public static class KILN
             {
                 public static LocString RECIPE_CHARCOAL_DESCRIPTION = "Processes {0} into {1} and a small amount of {2}.";

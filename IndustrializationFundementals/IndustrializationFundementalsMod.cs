@@ -65,6 +65,7 @@ namespace MattsMods.IndustrializationFundementals
             BuildingManager.AddToPlanMenu(StorageSkipConfig.ID, "Base", StorageSiloConfig.ID);
             BuildingManager.AddToPlanMenu(StorageContainerConfig.ID, "Base", StorageSkipConfig.ID);
             BuildingManager.AddToPlanMenu(SawmillConfig.ID, "Refining", KilnConfig.ID);
+            BuildingManager.AddToPlanMenu(ScaffoldingConfig.ID, "Base", LadderConfig.ID);
 
             // add buildings to tech
             BuildingManager.AddToTech(StorageSkipConfig.ID, techStorage.Id);
@@ -72,6 +73,7 @@ namespace MattsMods.IndustrializationFundementals
             BuildingManager.AddToTech(StorageSiloConfig.ID, techStorage.Id);
             BuildingManager.AddToTech(StorageContainerConfig.ID, techStorage2.Id);
             BuildingManager.AddToTech(SawmillConfig.ID, techCarpentry1.Id);
+            BuildingManager.AddToTech(ScaffoldingConfig.ID, techCarpentry1.Id);
         }
 
         public override void PostInitialize()
