@@ -10,6 +10,7 @@ namespace MattsMods.IndustrializationFundementals.STRINGS {
             public static LocString CRYSTAL = "Raw Crystal";
             public static LocString POWDER = "Powder";
             public static LocString SILT = "Silt";
+            public static LocString LUMBER = "Lumber";
             public static LocString WOODLOGS = "Wood Logs";
 
         }

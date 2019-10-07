@@ -54,20 +54,24 @@ namespace MattsMods.IndustrializationFundementals
 
             var techStorage2 = TechTree.CreateTech("HeavyStorage");
             TechTree.AddRequirement(techStorage2, TechTree.GetTech("Smelting"));
-            TechTree.AddRequirement(techStorage2, TechTree.GetTech("SmartStorage"));
+            TechTree.AddRequirement(techStorage2, TechTree.GetTech(techStorage.Id));
 
-            // add buildings to their appropriate tech and plan screen
-            BuildingManager.AddToPlanMenu(StorageCrateConfig.ID, "Base", "StorageLockerSmart");
-            BuildingManager.AddToTech(StorageCrateConfig.ID, techStorage.Id);
+            var techCarpentry1 = TechTree.CreateTech("CarpentryI");
+            TechTree.AddRequirement(techCarpentry1, TechTree.GetTech("BasicRefinement"));
 
+            // add buildings to plan screen
+            BuildingManager.AddToPlanMenu(StorageCrateConfig.ID, "Base", StorageLockerSmartConfig.ID);
             BuildingManager.AddToPlanMenu(StorageSiloConfig.ID, "Base", StorageCrateConfig.ID);
-            BuildingManager.AddToTech(StorageSiloConfig.ID, techStorage.Id);
-
             BuildingManager.AddToPlanMenu(StorageSkipConfig.ID, "Base", StorageSiloConfig.ID);
-            BuildingManager.AddToTech(StorageSkipConfig.ID, techStorage.Id);
-
             BuildingManager.AddToPlanMenu(StorageContainerConfig.ID, "Base", StorageSkipConfig.ID);
+            BuildingManager.AddToPlanMenu(SawmillConfig.ID, "Refining", KilnConfig.ID);
+
+            // add buildings to tech
+            BuildingManager.AddToTech(StorageSkipConfig.ID, techStorage.Id);
+            BuildingManager.AddToTech(StorageCrateConfig.ID, techStorage.Id);
+            BuildingManager.AddToTech(StorageSiloConfig.ID, techStorage.Id);
             BuildingManager.AddToTech(StorageContainerConfig.ID, techStorage2.Id);
+            BuildingManager.AddToTech(SawmillConfig.ID, techCarpentry1.Id);
         }
 
         public override void PostInitialize()

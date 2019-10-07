@@ -38,9 +38,16 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
                 public static LocString EFFECT = "A large modular storage solution.";
             }
 
+            public static class SAWMILL
+            {
+                public static LocString NAME = FormatAsLink("Sawmill", nameof(SAWMILL));
+                public static LocString DESC = $"Processes {FormatAsLink("Wood", Tags.WoodLogs.Name)} into {FormatAsLink("Lumber", Tags.Lumber.Name)} and a small amount of {FormatAsLink("Sawdust", ElementConfig.Sawdust.ID + Element.State.Solid)}";
+                public static LocString EFFECT = $"Initial processing station for {FormatAsLink("Wood", Tags.WoodLogs.Name)}.";
+            }
+
             public static class KILN
             {
-                public static LocString RECIPE_CHARCOAL_DESCRIPTION = "Bakes {0} into {1} and a small amount of {2}.";
+                public static LocString RECIPE_CHARCOAL_DESCRIPTION = "Processes {0} into {1} and a small amount of {2}.";
             }
         }
 

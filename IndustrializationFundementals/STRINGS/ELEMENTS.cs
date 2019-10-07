@@ -17,10 +17,22 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
             public static LocString DESC = $"A left-over inflammable powder from burning {FormatAsLink("Charcoal", nameof(CHARCOALSOLID))}";
         }
 
+        public static class SAWDUSTSOLID
+        {
+            public static LocString NAME = FormatAsLink("Sawdust", nameof(SAWDUSTSOLID));
+            public static LocString DESC = $"A fine powder produced as a byproduct from processing {FormatAsLink("Wood", Tags.WoodLogs.Name)}.";
+        }
+
+        public static class WOODARBORSOLID
+        {
+            public static LocString NAME = FormatAsLink("Arbor Wood", nameof(WOODARBORSOLID));
+            public static LocString DESC = $"The raw wood of an {FormatAsLink("Arbor Tree", "FOREST_TREE")}.";
+        }
+
         public static class LUMBERARBORSOLID
         {
-            public static LocString NAME = FormatAsLink("Arbor Wood", nameof(LUMBERARBORSOLID));
-            public static LocString DESC = $"The raw wood of an {FormatAsLink("Arbor Tree", "FOREST_TREE")}.";
+            public static LocString NAME = FormatAsLink("Arbor Lumber", nameof(LUMBERARBORSOLID));
+            public static LocString DESC = $"Cut lumber from {FormatAsLink("Arbor Wood", nameof(WOODARBORSOLID))}.";
         }
     }
 }

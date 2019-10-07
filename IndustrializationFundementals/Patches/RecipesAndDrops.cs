@@ -14,7 +14,7 @@ namespace MattsMods.IndustrializationFundementals.Patches
             {
                 if (crop_id == "WoodLog")
                 {
-                    crop_id = ElementConfig.LumberArbor.ID + "Solid";
+                    crop_id = ElementConfig.WoodArbor.ID + "Solid";
                 }
             }
 
@@ -83,7 +83,7 @@ namespace MattsMods.IndustrializationFundementals.Patches
 
                     var charcoalRecipe = new ComplexRecipe(id, charcoalInputs, charcoalOutputs)
                     {
-                        time = 40f,
+                        time = TUNING.BUILDINGS.FABRICATION_TIME_SECONDS.SHORT,
                         description = string.Format(STRINGS.BUILDINGS.PREFABS.KILN.RECIPE_CHARCOAL_DESCRIPTION, element.name, ElementLoader.FindElementByName("CharcoalSolid").name, ElementLoader.FindElementByName("AshSolid").name),
                         fabricators = new List<Tag>()
                         {
