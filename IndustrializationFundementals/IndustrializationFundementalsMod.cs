@@ -27,6 +27,10 @@ namespace MattsMods.IndustrializationFundementals
 
         public override string Prefix => "MM:IndyFundementals";
 
+        public const string TECH_STORAGE1 = "IndustrialStorageI";
+        public const string TECH_STORAGE2 = "IndustrialStorageII";
+        public const string TECH_CARPENTRY1 = "CarpentryI";
+
         internal static PipLib.Logging.ILogger ModLogger { get; private set; }
 
         public override void Load()
@@ -44,36 +48,28 @@ namespace MattsMods.IndustrializationFundementals
             GameTags.MaterialCategories.Add(Tags.Silt);
             GameTags.MaterialCategories.Add(Tags.WoodLogs);
             GameTags.MaterialCategories.Add(Tags.Lumber);
+
+            TUNING.STORAGEFILTERS.NOT_EDIBLE_SOLIDS.AddRange(new Tag[]{
+                Tags.Gems,
+                Tags.Crystal,
+                Tags.Silt,
+                Tags.WoodLogs,
+                Tags.Lumber
+            });
         }
 
         public override void Initialize()
         {
             // create techs
-            var techStorage = TechTree.CreateTech("IndustrialStorage");
+            var techStorage = TechTree.CreateTech(TECH_STORAGE1);
             TechTree.AddRequirement(techStorage, TechTree.GetTech("BasicRefinement"));
 
-            var techStorage2 = TechTree.CreateTech("HeavyStorage");
-            TechTree.AddRequirement(techStorage2, TechTree.GetTech("Smelting"));
+            var techStorage2 = TechTree.CreateTech(TECH_STORAGE2);
             TechTree.AddRequirement(techStorage2, TechTree.GetTech(techStorage.Id));
+            TechTree.AddRequirement(techStorage2, TechTree.GetTech("Smelting"));
 
-            var techCarpentry1 = TechTree.CreateTech("CarpentryI");
+            var techCarpentry1 = TechTree.CreateTech(TECH_CARPENTRY1);
             TechTree.AddRequirement(techCarpentry1, TechTree.GetTech("BasicRefinement"));
-
-            // add buildings to plan screen
-            BuildingManager.AddToPlanMenu(StorageCrateConfig.ID, "Base", StorageLockerSmartConfig.ID);
-            BuildingManager.AddToPlanMenu(StorageSiloConfig.ID, "Base", StorageCrateConfig.ID);
-            BuildingManager.AddToPlanMenu(StorageSkipConfig.ID, "Base", StorageSiloConfig.ID);
-            BuildingManager.AddToPlanMenu(StorageContainerConfig.ID, "Base", StorageSkipConfig.ID);
-            BuildingManager.AddToPlanMenu(SawmillConfig.ID, "Refining", KilnConfig.ID);
-            BuildingManager.AddToPlanMenu(ScaffoldingConfig.ID, "Base", LadderConfig.ID);
-
-            // add buildings to tech
-            BuildingManager.AddToTech(StorageSkipConfig.ID, techStorage.Id);
-            BuildingManager.AddToTech(StorageCrateConfig.ID, techStorage.Id);
-            BuildingManager.AddToTech(StorageSiloConfig.ID, techStorage.Id);
-            BuildingManager.AddToTech(StorageContainerConfig.ID, techStorage2.Id);
-            BuildingManager.AddToTech(SawmillConfig.ID, techCarpentry1.Id);
-            BuildingManager.AddToTech(ScaffoldingConfig.ID, techCarpentry1.Id);
         }
 
         public override void PostInitialize()

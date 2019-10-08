@@ -1,8 +1,11 @@
+using PipLib.Building;
 using System.Collections.Generic;
 using TUNING;
 
 namespace MattsMods.IndustrializationFundementals.Building
 {
+    [BuildingInfo.TechRequirement(ID, IndustrializationFundementalsMod.TECH_STORAGE1)]
+    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageLockerSmartConfig.ID)]
     public class StorageCrateConfig : IBuildingConfig
     {
 

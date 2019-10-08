@@ -1,7 +1,10 @@
+using PipLib.Building;
 using TUNING;
 
 namespace MattsMods.IndustrializationFundementals.Building
 {
+    [BuildingInfo.TechRequirement(ID, IndustrializationFundementalsMod.TECH_CARPENTRY1)]
+    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = LadderConfig.ID)]
     public class ScaffoldingConfig : IBuildingConfig
     {
         public const string ID = "Scaffolding";

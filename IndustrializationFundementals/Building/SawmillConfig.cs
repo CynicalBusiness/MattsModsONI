@@ -1,8 +1,11 @@
+using PipLib.Building;
 using System.Collections.Generic;
 using TUNING;
 
 namespace MattsMods.IndustrializationFundementals.Building
 {
+    [BuildingInfo.TechRequirement(ID, IndustrializationFundementalsMod.TECH_CARPENTRY1)]
+    [BuildingInfo.OnPlanScreen(ID, "Refining", AfterId = KilnConfig.ID)]
     public class SawmillConfig : IBuildingConfig
     {
         public const string ID = "Sawmill";
