@@ -52,10 +52,17 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
                 public static LocString EFFECT = "Desconstructing a scaffold will also deconstruct all scaffolds marked for deconstruct connected to it.";
             }
 
+            #region Vanilla Overrides
             public static class KILN
             {
                 public static LocString RECIPE_CHARCOAL_DESCRIPTION = "Processes {0} into {1} and a small amount of {2}.";
             }
+
+            public static class METALREFINERY
+            {
+                public static LocString RECIPE_ALLOY2_DESCRIPTION = "Forges {0} from {1} and {2}.";
+            }
+            #endregion
         }
 
     }
