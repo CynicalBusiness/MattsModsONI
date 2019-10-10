@@ -1,0 +1,18 @@
+[h1][i]Matt's Mods:[/i] Adjustable Transformers[/h1]
+
+[b]Adjust the output wattage of your transformers![/b]
+No more chaining and mixing of transformers to get the wattage you need.
+
+This mod makes a few changes:
+[list]
+[*] The Power Transfomer and Large Power Transformer can now have their outputs adjusted [i]up to[/i] their maximum value instead of being fixed
+[*] The Large Power Transformer has had its maximum raised from 4kW to 20kW.
+[/list]
+
+...and that's it. It's a simple one. No dependencies or order requirements.
+This mod [i]should[/i] be safe to add to an existing save, though all of your transformers will reset to zero due to a limitation in the base game's slider. Removing this mod will reset tranformers to their default value.
+There exists a limitation in the base game's slider that prevents having more than three digits (plus a decimal place) in the value field. This is why the slider is in multiples of 0.1kW.
+
+[h1]----[/h1]
+Check out some of my other mods, submit issues, or view the source code over on my [url=https://lab.vevox.io/games/oxygen-not-included/matts-mods]GitLab[/url]!
+[i]Myra ta Hayzel; Pal, Kifitae te Entra en na Loka.[/i]

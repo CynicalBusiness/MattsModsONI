@@ -21,6 +21,22 @@
             },
             // Use the standard MS compiler pattern to detect errors, warnings and infos
             "problemMatcher": "$msCompile"
-        }
+        },
+        {
+            "label": "build (Release)",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/p:GenerateFullPaths=true",
+                "/p:Configuration=Release",
+                "/t:Build",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
     ]
 }

@@ -2,6 +2,7 @@ using Harmony;
 using KSerialization;
 using STRINGS;
 using System.Diagnostics;
+using static MattsMods.AdjustableTransformers.STRINGS.UI;
 
 namespace MattsMods.AdjustableTransformers
 {
@@ -9,9 +10,6 @@ namespace MattsMods.AdjustableTransformers
     {
 
         public const string KEY = "STRINGS.UI.UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN";
-
-        public readonly LocString TOOLTIP = new LocString("Select Maximum Wattage", KEY + ".TOOLTIP");
-        public readonly LocString TITLE = new LocString("Wattage", KEY + ".TITLE");
 
         /// <summary>
         /// The value this slider is currently set to
@@ -44,15 +42,15 @@ namespace MattsMods.AdjustableTransformers
 
         public string GetSliderTooltipKey(int i)
         {
-            return TOOLTIP.key.String;
+            return KEY + ".TOOLTIP";
         }
 
         public string GetSliderTooltip()
         {
-            return $"Transformer output wattage will be capped at {UI.FormatAsKeyWord(WattageVal + SliderUnits)}.";
+            return string.Format(UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN.TOOLTIP, WattageVal, SliderUnits);
         }
 
-        public string SliderTitleKey => TITLE.key.String;
+        public string SliderTitleKey => KEY + ".TITLE";
         public string SliderUnits => UI.UNITSUFFIXES.ELECTRICAL.KILOWATT;
 
         public void SetSliderValue(float val, int i)

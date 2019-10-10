@@ -5,6 +5,11 @@ namespace MattsMods.AdjustableTransformers
 {
     public static class PowerTransformerPatches
     {
+        public static void OnLoad ()
+        {
+            LocString.CreateLocStringKeys(typeof(MattsMods.AdjustableTransformers.STRINGS.UI));
+        }
+
         // === Large Power Transformer
         [HarmonyPatch(typeof(PowerTransformerConfig))]
         [HarmonyPatch("CreateBuildingDef")]
@@ -23,7 +28,7 @@ namespace MattsMods.AdjustableTransformers
         {
             public static void Postfix(GameObject go)
             {
-                go.AddComponent<PowerTransformerAdjustable>();
+                go.AddOrGet<PowerTransformerAdjustable>();
             }
         }
 
@@ -34,7 +39,7 @@ namespace MattsMods.AdjustableTransformers
         {
             public static void Postfix(BuildingDef __result)
             {
-                __result.GeneratorBaseCapacity = Wire.GetMaxWattageAsFloat(Wire.WattageRating.Max2000);
+                __result.GeneratorBaseCapacity = Wire.GetMaxWattageAsFloat(Wire.WattageRating.Max1000);
                 __result.GeneratorWattageRating = __result.GeneratorBaseCapacity;
             }
         }
@@ -45,7 +50,7 @@ namespace MattsMods.AdjustableTransformers
         {
             public static void Postfix(GameObject go)
             {
-                go.AddComponent<PowerTransformerAdjustable>();
+                go.AddOrGet<PowerTransformerAdjustable>();
             }
         }
     }
