@@ -29,6 +29,7 @@ namespace MattsMods.AdjustableTransformers
             public static void Postfix(GameObject go)
             {
                 go.AddOrGet<PowerTransformerAdjustable>();
+                go.AddOrGet<CopyBuildingSettings>().tag = PowerTransformerConfig.ID;
             }
         }
 
@@ -39,6 +40,7 @@ namespace MattsMods.AdjustableTransformers
             public static void Postfix(GameObject go)
             {
                 go.AddOrGet<PowerTransformerAdjustable>();
+                go.AddOrGet<CopyBuildingSettings>().tag = PowerTransformerSmallConfig.ID;
             }
         }
     }
