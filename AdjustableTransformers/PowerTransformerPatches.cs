@@ -32,18 +32,6 @@ namespace MattsMods.AdjustableTransformers
             }
         }
 
-        // === Small Power Transformer
-        [HarmonyPatch(typeof(PowerTransformerSmallConfig))]
-        [HarmonyPatch("CreateBuildingDef")]
-        private static class Patch_PowerTransformerSmallConfig_CreateBuildingDef
-        {
-            public static void Postfix(BuildingDef __result)
-            {
-                __result.GeneratorBaseCapacity = Wire.GetMaxWattageAsFloat(Wire.WattageRating.Max1000);
-                __result.GeneratorWattageRating = __result.GeneratorBaseCapacity;
-            }
-        }
-
         [HarmonyPatch(typeof(PowerTransformerSmallConfig))]
         [HarmonyPatch("ConfigureBuildingTemplate")]
         private static class Patch_PowerTransformerSmallConfig_ConfigureBuildingTemplate

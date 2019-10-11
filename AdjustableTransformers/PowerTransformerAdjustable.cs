@@ -1,24 +1,23 @@
 using Harmony;
 using KSerialization;
 using STRINGS;
-using System.Diagnostics;
 using static MattsMods.AdjustableTransformers.STRINGS.UI;
 
 namespace MattsMods.AdjustableTransformers
 {
-    public class PowerTransformerAdjustable : KMonoBehaviour, ISim200ms, ISingleSliderControl
+    public class PowerTransformerAdjustable : KMonoBehaviour, ISim200ms, ISingleSliderControl, ISliderControl
     {
 
         public const string KEY = "STRINGS.UI.UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN";
+
+        [MyCmpReq]
+        public PowerTransformer powerTransformer;
 
         /// <summary>
         /// The value this slider is currently set to
         /// </summary>
         [Serialize]
-        public float WattageVal { get; set; }
-
-        [MyCmpReq]
-        public PowerTransformer powerTransformer;
+        public float wattageVal = int.MaxValue;
 
         public int SliderDecimalPlaces(int i)
         {
@@ -37,7 +36,7 @@ namespace MattsMods.AdjustableTransformers
 
         public float GetSliderValue(int i)
         {
-            return WattageVal;
+            return wattageVal;
         }
 
         public string GetSliderTooltipKey(int i)
@@ -47,7 +46,7 @@ namespace MattsMods.AdjustableTransformers
 
         public string GetSliderTooltip()
         {
-            return string.Format(UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN.TOOLTIP, WattageVal, SliderUnits);
+            return string.Format(UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN.TOOLTIP, wattageVal, SliderUnits);
         }
 
         public string SliderTitleKey => KEY + ".TITLE";
@@ -55,19 +54,24 @@ namespace MattsMods.AdjustableTransformers
 
         public void SetSliderValue(float val, int i)
         {
-            WattageVal = val;
+            wattageVal = val;
         }
 
         public void SetWattage (float watts)
         {
-            WattageVal = watts / 1000f;
+            wattageVal = watts / 1000f;
+        }
+
+        protected override void OnSpawn ()
+        {
+            wattageVal = powerTransformer.BaseCapacity;
         }
 
         public void Sim200ms(float delta)
         {
             var pt = Traverse.Create(powerTransformer);
             var battery = pt.Field<Battery>("battery").Value;
-            battery.capacity = WattageVal * 1000f;
+            battery.capacity = wattageVal * 1000f;
             // battery.chargeWattage = WattageVal * 1000f;
             if (battery.JoulesAvailable > battery.Capacity)
             {
