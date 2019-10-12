@@ -80,56 +80,5 @@ namespace MattsMods.IndustrializationFundementals
                 return def;
             }
         }
-
-        public class Tin : IElementConfig
-        {
-            public const string ID = "Tin";
-
-            public override ElementDef CreateElementDef()
-            {
-                var def = ElementTemplates.CreateElementDef(ID);
-
-                var solid = def.AddOrGetState(Element.State.Solid);
-                solid.attributes.Add(db => new Klei.AI.AttributeModifier(db.BuildingAttributes.OverheatTemperature.Id, TUNING.BUILDINGS.OVERHEAT_TEMPERATURES.LOW_1));
-
-                def.AddOrGetState(Element.State.Liquid);
-                def.AddOrGetState(Element.State.Gas);
-                def.color = new Color32(180, 180, 210, 255);
-                return def;
-            }
-        }
-
-        public class TinOre : IElementConfig
-        {
-            public const string ID = "TinOre";
-
-            public override ElementDef CreateElementDef()
-            {
-                var def = ElementTemplates.CreateElementDef(ID);
-
-                var solid = def.AddOrGetState(Element.State.Solid);
-                solid.attributes.Add(db => new Klei.AI.AttributeModifier(db.BuildingAttributes.OverheatTemperature.Id, TUNING.BUILDINGS.OVERHEAT_TEMPERATURES.LOW_1));
-
-                def.AddOrGetState(Element.State.Liquid);
-                def.color = new Color32(100, 100, 120, 255);
-                return def;
-            }
-        }
-
-        public class Bronze : IElementConfig
-        {
-            public const string ID = "Bronze";
-
-            public override ElementDef CreateElementDef()
-            {
-                var def = ElementTemplates.CreateElementDef(ID);
-
-                var solid = def.AddOrGetState(Element.State.Solid);
-                solid.attributes.Add(db => new Klei.AI.AttributeModifier(db.BuildingAttributes.OverheatTemperature.Id, TUNING.BUILDINGS.OVERHEAT_TEMPERATURES.HIGH_2));
-
-                def.color = new Color32(250, 154, 80, 255);
-                return def;
-            }
-        }
     }
 }

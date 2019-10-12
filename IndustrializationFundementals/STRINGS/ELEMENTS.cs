@@ -57,39 +57,5 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
         }
         #endregion
         #endregion
-        #region Metals
-        #region Tin
-        public static class TINSOLID
-        {
-            public static LocString NAME = FormatAsLink("Tin", nameof(TINSOLID));
-            public static LocString DESC = $"A light-weight and mallable metal.";
-        }
-
-        public static class TINLIQUID
-        {
-            public static LocString NAME = FormatAsLink("Molten Tin", nameof(TINLIQUID));
-            public static LocString DESC = $"{FormatAsLink("Tin", nameof(TINSOLID))} melted down into a liquid.";
-        }
-
-        public static class TINGAS
-        {
-            public static LocString NAME = FormatAsLink("Tin", nameof(TINGAS));
-            public static LocString DESC = $"{FormatAsLink("Molten Tin", nameof(TINSOLID))} boiled into a gas.";
-        }
-
-        public static class TINORESOLID
-        {
-            public static LocString NAME = FormatAsLink("Casserite", nameof(TINORESOLID));
-            public static LocString DESC = $"A raw ore that can be extracted for {FormatAsLink("Tin", nameof(TINSOLID))}";
-        }
-        #endregion
-        #region Bronze
-        public static class BRONZESOLID
-        {
-            public static LocString NAME = FormatAsLink("Bronze", nameof(BRONZESOLID));
-            public static LocString DESC = $"A strong alloy forged from {FormatAsLink("Copper", nameof(global::STRINGS.ELEMENTS.COPPER))} a either {FormatAsLink("Tin", nameof(TINSOLID))} or {FormatAsLink("Aluminum", nameof(global::STRINGS.ELEMENTS.ALUMINUM))}";
-        }
-        #endregion
-        #endregion
     }
 }
