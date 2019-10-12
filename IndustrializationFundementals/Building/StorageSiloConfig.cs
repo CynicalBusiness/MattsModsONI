@@ -25,9 +25,9 @@ namespace MattsMods.IndustrializationFundementals.Building
         {
             var def = BuildingTemplates.CreateBuildingDef(
                 id: ID,
-                width: 3,
-                height: 2,
-                anim: "storage_skip_kanim", // TODO
+                width: 2,
+                height: 3,
+                anim: "liquidreservoir_kanim", // TODO
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
                 construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER5,
