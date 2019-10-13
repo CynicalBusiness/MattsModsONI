@@ -5,9 +5,15 @@ using static MattsMods.AdjustableTransformers.STRINGS.UI;
 
 namespace MattsMods.AdjustableTransformers
 {
+    [SerializationConfig(MemberSerialization.OptIn)]
     public class PowerTransformerAdjustable : KMonoBehaviour, ISim200ms, ISingleSliderControl, ISliderControl
     {
-        private static readonly EventSystem.IntraObjectHandler<PowerTransformerAdjustable> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<PowerTransformerAdjustable>((comp, data) => comp.OnCopySettings(data));
+        private static readonly EventSystem.IntraObjectHandler<PowerTransformerAdjustable> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<PowerTransformerAdjustable>(OnCopySettings);
+
+        private static void OnCopySettings (PowerTransformerAdjustable comp, object data)
+        {
+            comp.OnCopySettings(data);
+        }
 
         public const string KEY = "STRINGS.UI.UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN";
 

@@ -41,5 +41,13 @@ namespace MattsMods.AdjustableTransformers
                 go.AddOrGet<PowerTransformerAdjustable>();
             }
         }
+
+        private static class Patch_IntraObjectHandler
+        {
+            public static bool Prefix(EventSystem.IntraObjectHandler<object> __instance)
+            {
+                return false;
+            }
+        }
     }
 }
