@@ -7,17 +7,23 @@ namespace MattsMods.AdjustableTransformers
 {
     public class PowerTransformerAdjustable : KMonoBehaviour, ISim200ms, ISingleSliderControl, ISliderControl
     {
+        private static readonly EventSystem.IntraObjectHandler<PowerTransformerAdjustable> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<PowerTransformerAdjustable>((comp, data) => comp.OnCopySettings(data));
 
         public const string KEY = "STRINGS.UI.UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN";
 
         [MyCmpReq]
         public PowerTransformer powerTransformer;
 
+        [MyCmpAdd]
+        public CopyBuildingSettings copyBuildingSettings;
+
         /// <summary>
         /// The value this slider is currently set to
         /// </summary>
         [Serialize]
         public float wattageVal = int.MaxValue;
+
+        public float preferredDefaultWattage = int.MaxValue;
 
         public int SliderDecimalPlaces(int i)
         {
@@ -62,9 +68,18 @@ namespace MattsMods.AdjustableTransformers
             wattageVal = watts / 1000f;
         }
 
+        protected override void OnPrefabInit()
+        {
+            base.OnPrefabInit();
+            Subscribe<PowerTransformerAdjustable>((int)GameHashes.CopySettings, OnCopySettingsDelegate);
+        }
+
         protected override void OnSpawn ()
         {
-            wattageVal = powerTransformer.BaseCapacity;
+            if (wattageVal == int.MaxValue)
+            {
+                SetWattage(GetPreferredDefaultWattage());
+            }
         }
 
         public void Sim200ms(float delta)
@@ -76,6 +91,20 @@ namespace MattsMods.AdjustableTransformers
             if (battery.JoulesAvailable > battery.Capacity)
             {
                 battery.ConsumeEnergy(battery.JoulesAvailable - battery.Capacity, false);
+            }
+        }
+
+        private float GetPreferredDefaultWattage ()
+        {
+            return UnityEngine.Mathf.Min(powerTransformer.BaseWattageRating, preferredDefaultWattage);
+        }
+
+        internal void OnCopySettings (object data)
+        {
+            PowerTransformerAdjustable comp = ((UnityEngine.GameObject)data).GetComponent<PowerTransformerAdjustable>();
+            if (comp != null)
+            {
+                this.wattageVal = comp.wattageVal;
             }
         }
     }

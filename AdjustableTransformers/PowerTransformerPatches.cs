@@ -28,8 +28,7 @@ namespace MattsMods.AdjustableTransformers
         {
             public static void Postfix(GameObject go)
             {
-                go.AddOrGet<PowerTransformerAdjustable>();
-                go.AddOrGet<CopyBuildingSettings>().tag = PowerTransformerConfig.ID;
+                go.AddOrGet<PowerTransformerAdjustable>().preferredDefaultWattage = Wire.GetMaxWattageAsFloat(Wire.WattageRating.Max2000) * 2;
             }
         }
 
@@ -40,7 +39,6 @@ namespace MattsMods.AdjustableTransformers
             public static void Postfix(GameObject go)
             {
                 go.AddOrGet<PowerTransformerAdjustable>();
-                go.AddOrGet<CopyBuildingSettings>().tag = PowerTransformerSmallConfig.ID;
             }
         }
     }
