@@ -1,9 +1,9 @@
 using PipLib.Building;
 using TUNING;
 
-namespace MattsMods.IndustrializationFundementals.Building
+namespace MattsMods.Industrialization.Storage.Building
 {
-    [BuildingInfo.TechRequirement(ID, IndustrializationFundementalsMod.TECH_STORAGE2)]
+    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE2)]
     [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageSkipConfig.ID)]
     public class StorageContainerConfig : IBuildingConfig
     {
@@ -22,13 +22,12 @@ namespace MattsMods.IndustrializationFundementals.Building
                 hitpoints: BUILDINGS.HITPOINTS.TIER3,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER5,
                 construction_mass: new float[]{
-                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0],
+                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0],
                     BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0],
                     BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0]
                 },
                 construction_materials: new string[]{
-                    // Since most alloys are also refined metals, this leads to some interesting options
-                    GameTags.Alloy.Name,
+                    GameTags.Steel.Name,
                     GameTags.RefinedMetal.Name,
                     GameTags.Plastic.Name
                 },
@@ -50,14 +49,14 @@ namespace MattsMods.IndustrializationFundementals.Building
         {
             Prioritizable.AddRef(go);
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), TAG);
-            var storage = go.AddOrGet<Storage>();
+            var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
             storage.showDescriptor = true;
             storage.storageFilters = TUNING.STORAGEFILTERS.NOT_EDIBLE_SOLIDS;
             storage.allowItemRemoval = true;
             storage.capacityKg *= 10;
             storage.storageFullMargin = STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
-            storage.fetchCategory = Storage.FetchCategory.GeneralStorage;
+            storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<StorageContainer>();

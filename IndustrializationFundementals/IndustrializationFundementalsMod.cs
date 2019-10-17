@@ -21,6 +21,9 @@ namespace MattsMods.IndustrializationFundementals
             public static readonly Tag Silt = TagManager.Create(nameof(Silt));
             public static readonly Tag WoodLogs = TagManager.Create(nameof(WoodLogs));
             public static readonly Tag Lumber = TagManager.Create(nameof(Lumber));
+            public static readonly Tag BuildingBlock = TagManager.Create(nameof(BuildingBlock));
+            public static readonly Tag BuildingBlockHeavy = TagManager.Create(nameof(BuildingBlockHeavy));
+            public static readonly Tag Waste = TagManager.Create(nameof(Waste));
         }
 
         public override string Name => "Matt's Mods: Industrialization Fundementals";
@@ -46,28 +49,29 @@ namespace MattsMods.IndustrializationFundementals
             GameTags.MaterialCategories.Add(Tags.Gems);
             GameTags.MaterialCategories.Add(Tags.Crystal);
             GameTags.MaterialCategories.Add(Tags.Silt);
+            GameTags.MaterialCategories.Add(Tags.Powder);
             GameTags.MaterialCategories.Add(Tags.WoodLogs);
             GameTags.MaterialCategories.Add(Tags.Lumber);
+            GameTags.MaterialCategories.Add(Tags.BuildingBlock);
+            GameTags.MaterialCategories.Add(Tags.BuildingBlockHeavy);
+            GameTags.MaterialCategories.Add(Tags.Waste);
 
             TUNING.STORAGEFILTERS.NOT_EDIBLE_SOLIDS.AddRange(new Tag[]{
                 Tags.Gems,
                 Tags.Crystal,
                 Tags.Silt,
+                Tags.Powder,
                 Tags.WoodLogs,
-                Tags.Lumber
+                Tags.Lumber,
+                Tags.BuildingBlock,
+                Tags.BuildingBlockHeavy,
+                Tags.Waste
             });
         }
 
         public override void Initialize()
         {
             // create techs
-            var techStorage = TechTree.CreateTech(TECH_STORAGE1);
-            TechTree.AddRequirement(techStorage, TechTree.GetTech("BasicRefinement"));
-
-            var techStorage2 = TechTree.CreateTech(TECH_STORAGE2);
-            TechTree.AddRequirement(techStorage2, TechTree.GetTech(techStorage.Id));
-            TechTree.AddRequirement(techStorage2, TechTree.GetTech("Smelting"));
-
             var techCarpentry1 = TechTree.CreateTech(TECH_CARPENTRY1);
             TechTree.AddRequirement(techCarpentry1, TechTree.GetTech("BasicRefinement"));
         }

@@ -1,34 +1,31 @@
 using PipLib.Building;
-using TUNING;
 using System.Collections.Generic;
+using TUNING;
 
-namespace MattsMods.IndustrializationFundementals.Building
+namespace MattsMods.Industrialization.Storage.Building
 {
-    [BuildingInfo.TechRequirement(ID, IndustrializationFundementalsMod.TECH_STORAGE1)]
-    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageSiloConfig.ID)]
-    public class StorageSkipConfig : IBuildingConfig
+    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE1)]
+    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageCrateConfig.ID)]
+    public class StorageSiloConfig : IBuildingConfig
     {
 
-        public const string ID = "StorageSkip";
+        public const string ID = "StorageSilo";
 
         public static readonly Tag TAG = TagManager.Create(ID);
 
         public static readonly List<Tag> STORAGE_TAG = new List<Tag>()
         {
-            GameTags.BuildableRaw,
-            GameTags.Metal,
-            GameTags.ConsumableOre,
-            IndustrializationFundementalsMod.Tags.Gems,
-            IndustrializationFundementalsMod.Tags.Crystal
+            GameTags.Farmable,
+            GameTags.Filter
         };
 
-        public override BuildingDef CreateBuildingDef()
+        public override BuildingDef CreateBuildingDef ()
         {
             var def = BuildingTemplates.CreateBuildingDef(
                 id: ID,
-                width: 3,
-                height: 2,
-                anim: "storage_skip_kanim",
+                width: 2,
+                height: 3,
+                anim: "liquidreservoir_kanim", // TODO
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
                 construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER5,
@@ -44,19 +41,25 @@ namespace MattsMods.IndustrializationFundementals.Building
             return def;
         }
 
-        public override void DoPostConfigureComplete(UnityEngine.GameObject go)
+        public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
         {
-            var storage = go.AddOrGet<Storage>();
+            Prioritizable.AddRef(go);
+            var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
             storage.showDescriptor = true;
             storage.storageFilters = STORAGE_TAG;
             storage.allowItemRemoval = true;
             storage.capacityKg *= 5;
             storage.storageFullMargin = STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
-            storage.fetchCategory = Storage.FetchCategory.GeneralStorage;
+            storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
         }
-    }
 
+        public override void DoPostConfigureComplete(UnityEngine.GameObject go)
+        {
+            go.AddOrGetDef<StorageController.Def>();
+        }
+
+    }
 }

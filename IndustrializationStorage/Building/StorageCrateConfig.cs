@@ -2,9 +2,9 @@ using PipLib.Building;
 using System.Collections.Generic;
 using TUNING;
 
-namespace MattsMods.IndustrializationFundementals.Building
+namespace MattsMods.Industrialization.Storage.Building
 {
-    [BuildingInfo.TechRequirement(ID, IndustrializationFundementalsMod.TECH_STORAGE1)]
+    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE1)]
     [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageLockerSmartConfig.ID)]
     public class StorageCrateConfig : IBuildingConfig
     {
@@ -46,14 +46,14 @@ namespace MattsMods.IndustrializationFundementals.Building
         public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
         {
             Prioritizable.AddRef(go);
-            var storage = go.AddOrGet<Storage>();
+            var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
             storage.showDescriptor = true;
             storage.storageFilters = STORAGE_TAG;
             storage.allowItemRemoval = true;
             storage.capacityKg *= 5;
             storage.storageFullMargin = STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
-            storage.fetchCategory = Storage.FetchCategory.GeneralStorage;
+            storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
         }
