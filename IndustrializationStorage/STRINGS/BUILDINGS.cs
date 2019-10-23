@@ -33,8 +33,21 @@ namespace MattsMods.Industrialization.Storage.STRINGS
             public static class STORAGECONTAINER
             {
                 public static LocString NAME = FormatAsLink("Shipping Container", nameof(STORAGECONTAINER));
-                public static LocString DESC = "A huge container designed to store resources in bulk. These containers can be stacked atop one-another, can be walked on, and have a ladder for easy access.";
+                public static LocString DESC = $"A huge container designed to store resources in bulk. These containers can be stacked atop one-another, can be walked on, and have a ladder for easy access as well as a input port for a {(global::STRINGS.BUILDINGS.PREFABS.SOLIDCONDUIT.NAME.text)}.";
                 public static LocString EFFECT = "A large modular solid storage solution.";
+                public static LocString LOGIC_PORT = "Storage Threshold";
+                public static LocString LOGIC_PORT_ACTIVE = "Storage threshold met";
+                public static LocString LOGIC_PORT_INACTIVE = "Storage threshold not met";
+            }
+
+            public static class STORAGECONTAINERCOLD
+            {
+                public static LocString NAME = FormatAsLink("Refridgerated Shipping Container", nameof(STORAGECONTAINERCOLD));
+                public static LocString DESC = $"A variant of the {(STORAGECONTAINER.NAME.text)} that is insulated and has a configurable cooler to keep it below a set temperature. Heat removed from storage is pulled into the container itself.";
+                public static LocString EFFECT = "A large modular cold solid storage solution.";
+                public static LocString LOGIC_PORT = "Enable/Disable Cooling";
+                public static LocString LOGIC_PORT_ACTIVE = FormatAsLink("Green Signal", AutomationState.Active.ToString()) + ": Cooling Active";
+                public static LocString LOGIC_PORT_INACTIVE = FormatAsLink("Red Signal", AutomationState.Standby.ToString()) + ": Cooling Inactive";
             }
 
             public static class STORAGEGAS

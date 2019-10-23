@@ -10,7 +10,12 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public const string ID = "StorageContainer";
 
-        public readonly Tag TAG = TagManager.Create(ID);
+        public static readonly Tag TAG = TagManager.Create(ID);
+
+        private static readonly LogicPorts.Port[] OUTPUT_PORTS = new LogicPorts.Port[1]
+        {
+            LogicPorts.Port.OutputPort(LogicSwitch.PORT_ID, new CellOffset(1, 0), STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT_ACTIVE, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT_INACTIVE)
+        };
 
         public override BuildingDef CreateBuildingDef()
         {
@@ -47,8 +52,10 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
         {
-            Prioritizable.AddRef(go);
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), TAG);
+            GeneratedBuildings.MakeBuildingAlwaysOperational(go);
+            Prioritizable.AddRef(go);
+
             var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
             storage.showDescriptor = true;
@@ -60,15 +67,28 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<StorageContainer>();
+            go.AddOrGet<LogicStorageSensor>();
+
             go.AddOrGet<BuildingAttachPoint>().points = new BuildingAttachPoint.HardPoint[1]
             {
                 new BuildingAttachPoint.HardPoint(new CellOffset(0, 3), TAG, null)
             };
         }
 
+        public override void DoPostConfigurePreview(BuildingDef def, UnityEngine.GameObject go)
+        {
+            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORTS);
+        }
+
+        public override void DoPostConfigureUnderConstruction(UnityEngine.GameObject go)
+        {
+            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORTS);
+        }
+
         public override void DoPostConfigureComplete(UnityEngine.GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();
+            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORTS);
         }
     }
 

@@ -19,6 +19,7 @@ namespace MattsMods.Industrialization.Storage
         {
             LocString.CreateLocStringKeys(typeof(STRINGS.BUILDINGS));
             LocString.CreateLocStringKeys(typeof(STRINGS.RESEARCH));
+            LocString.CreateLocStringKeys(typeof(STRINGS.UI));
         }
 
         public override void Initialize()

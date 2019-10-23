@@ -4,6 +4,8 @@ namespace MattsMods.Industrialization.Storage.Building
     public class StorageContainer : KMonoBehaviour
     {
 
+
+
         protected override void OnPrefabInit()
         {
             base.OnPrefabInit();

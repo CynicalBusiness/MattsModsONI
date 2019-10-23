@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MattsMods.Industrialization.Storage.Building
 {
     [SerializationConfig(MemberSerialization.OptIn)]
-    public class LogicStorageSensor : Switch, IThresholdSwitch, ISaveLoadable, ISim200ms
+    public class LogicStorageSensor : LogicSwitch, IThresholdSwitch, ISaveLoadable, ISim200ms
     {
         private static readonly EventSystem.IntraObjectHandler<LogicStorageSensor> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<LogicStorageSensor>(OnCopySettingsHandler);
         private static void OnCopySettingsHandler (LogicStorageSensor comp, object data)
