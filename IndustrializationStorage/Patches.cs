@@ -1,20 +1,43 @@
 
+using MattsMods.Industrialization.Storage.Building;
 using Harmony;
+using UnityEngine;
 
 namespace MattsMods.Industrialization.Storage
 {
     public static class Patches
     {
 
-        [HarmonyPatch(typeof(global::Storage), "MakeItemTemperatureInsulated")]
-        private static class Patch_Storage_MakeItemTemperatureInsulated
+        [HarmonyPatch(typeof(RefrigeratorConfig), "DoPostConfigureComplete")]
+        private static class Patch_RefrigeratorConfig_DoPostConfigureComplete
         {
-            public static void Prefix (UnityEngine.GameObject go)
+
+            public static void Postfix (RefrigeratorConfig __instance, GameObject go)
             {
-                if (go.GetComponent<SimTemperatureTransfer>() == null)
+                GameObject.Destroy(go.GetComponent<Refrigerator>());
+                GameObject.Destroy(go.GetComponent<TreeFilterable>());
+                go.AddOrGet<StorageLocker>();
+                go.AddOrGet<StorageCold>();
+            }
+
+        }
+
+        [HarmonyPatch(typeof(Rottable), nameof(Rottable.IsRefrigerated))]
+        private static class Patch_Rottable_IsRefrigerated
+        {
+            public static bool Prefix (GameObject gameObject, ref bool __result)
+            {
+                var cell = Grid.PosToCell(gameObject);
+                if (Grid.IsValidCell(cell))
                 {
-                    Debug.LogFormat("No SimTemperatureTransfer on {0}", go.GetComponent<PrimaryElement>().GetProperName());
+                    var element = gameObject.GetComponent<PrimaryElement>();
+                    if (element.Temperature <= (Constants.CELSIUS2KELVIN + 4))
+                    {
+                        __result = true;
+                        return false;
+                    }
                 }
+                return true;
             }
         }
 

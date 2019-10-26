@@ -68,6 +68,7 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<StorageContainer>();
             go.AddOrGet<LogicStorageSensor>();
+            go.AddOrGet<DropAllWorkable>();
 
             go.AddOrGet<BuildingAttachPoint>().points = new BuildingAttachPoint.HardPoint[1]
             {

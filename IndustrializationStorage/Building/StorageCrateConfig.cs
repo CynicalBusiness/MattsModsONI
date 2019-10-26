@@ -56,6 +56,7 @@ namespace MattsMods.Industrialization.Storage.Building
             storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
+            go.AddOrGet<DropAllWorkable>();
         }
 
         public override void DoPostConfigureComplete(UnityEngine.GameObject go)

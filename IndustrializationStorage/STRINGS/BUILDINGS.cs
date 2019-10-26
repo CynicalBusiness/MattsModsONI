@@ -36,8 +36,8 @@ namespace MattsMods.Industrialization.Storage.STRINGS
                 public static LocString DESC = $"A huge container designed to store resources in bulk. These containers can be stacked atop one-another, can be walked on, and have a ladder for easy access as well as a input port for a {(global::STRINGS.BUILDINGS.PREFABS.SOLIDCONDUIT.NAME.text)}.";
                 public static LocString EFFECT = "A large modular solid storage solution.";
                 public static LocString LOGIC_PORT = "Storage Threshold";
-                public static LocString LOGIC_PORT_ACTIVE = "Storage threshold met";
-                public static LocString LOGIC_PORT_INACTIVE = "Storage threshold not met";
+        public static LocString LOGIC_PORT_ACTIVE = $"Sends a {(FormatAsAutomationState("Green Signal", AutomationState.Active))} when storage threshold is met";
+        public static LocString LOGIC_PORT_INACTIVE = $"Otherwise, sends a {(FormatAsAutomationState("Red Signal", AutomationState.Standby))}.";
             }
 
             public static class STORAGECONTAINERCOLD
@@ -65,6 +65,13 @@ namespace MattsMods.Industrialization.Storage.STRINGS
                 public static LocString NAME = FormatAsLink("Heavy Liquid Tank", nameof(STORAGELIQUID));
                 public static LocString DESC = $"A container that holds {FormatAsLink("Liquids", "ELEMENTS_LIQUID")} under pressure to increase space efficiency. Can be stacked.";
                 public static LocString EFFECT = "A large modular liquid storage solution.";
+            }
+
+            public static class ICEBOX
+            {
+                public static LocString NAME = FormatAsLink("Icebox", nameof(ICEBOX));
+                public static LocString DESC = $"A larger and more space efficient variant of the {(global::STRINGS.BUILDINGS.PREFABS.REFRIGERATOR.NAME.text)} with a few more options.";
+                public static LocString EFFECT = "Larger bulk storage solution for food.";
             }
         }
 

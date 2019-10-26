@@ -51,7 +51,7 @@ namespace MattsMods.Industrialization.Storage.Building
             def.OutputConduitType = CONDUIT;
             def.Floodable = false;
             def.Entombable = true;
-            def.ViewMode = OverlayModes.GasConduits.ID;
+            def.ViewMode = OverlayModes.LiquidConduits.ID;
             def.AudioCategory = AUDIO.HOLLOW_METAL;
             def.UtilityInputOffset = new CellOffset(-1, 1);
             def.UtilityOutputOffset = new CellOffset(1, 0);

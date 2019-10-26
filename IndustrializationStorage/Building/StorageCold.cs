@@ -34,7 +34,7 @@ namespace MattsMods.Industrialization.Storage.Building
         [Serialize]
         public float temperatureCurrent = int.MaxValue;
 
-        public float thermalEfficiency = 0.95f;
+        public float thermalEfficiency = 0.85f;
         public float energyMaxMultiplier = 0.1f;
         public float temperatureMin = 0;
         public float temperatureMax = 100 + Constants.CELSIUS2KELVIN;
@@ -53,7 +53,7 @@ namespace MattsMods.Industrialization.Storage.Building
         protected EnergyConsumer energyConsumer;
 
         public string SliderUnits => GameUtil.GetTemperatureUnitSuffix();
-        public string SliderTitleKey => "STRINGS.UI.UISIDESCREENS.STORAGE_COLD_SIDESCREEN.NAME";
+        public string SliderTitleKey => $"STRINGS.BUILDINGS.PREFABS.{building.PrefabID().Name.ToUpper()}.NAME";
 
         private HandleVector<int>.Handle structureTemperature;
 

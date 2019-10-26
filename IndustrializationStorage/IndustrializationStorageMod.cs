@@ -33,9 +33,9 @@ namespace MattsMods.Industrialization.Storage
             TechTree.AddRequirement(techStorage2, TechTree.GetTech("Smelting"));
 
             var techStorageFluids = TechTree.CreateTech(TECH_STORAGE_FLUIDS);
+            TechTree.AddRequirement(techStorageFluids, techStorage);
             TechTree.AddRequirement(techStorageFluids, TechTree.GetTech("HVAC"));
             TechTree.AddRequirement(techStorageFluids, TechTree.GetTech("LiquidTemperature"));
-            TechTree.AddRequirement(techStorageFluids, techStorage);
         }
 
     }

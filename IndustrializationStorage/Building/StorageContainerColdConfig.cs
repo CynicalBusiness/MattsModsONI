@@ -64,9 +64,9 @@ namespace MattsMods.Industrialization.Storage.Building
             def.AttachmentSlotTag = StorageContainerConfig.TAG;
             def.AudioCategory = AUDIO.HOLLOW_METAL;
             def.RequiresPowerInput = true;
-            def.PowerInputOffset = new CellOffset(0, 0);
+            def.ViewMode = OverlayModes.Power.ID;
             def.ExhaustKilowattsWhenActive = BUILDINGS.EXHAUST_ENERGY_ACTIVE.TIER2;
-            def.EnergyConsumptionWhenActive = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER5;
+            def.EnergyConsumptionWhenActive = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER6;
             def.OverheatTemperature = BUILDINGS.OVERHEAT_TEMPERATURES.HIGH_2;
             def.PermittedRotations = PermittedRotations.FlipH;
             return def;
@@ -94,6 +94,7 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<StorageContainer>();
             go.AddOrGet<LogicStorageSensor>();
+            go.AddOrGet<DropAllWorkable>();
 
             go.AddOrGet<BuildingAttachPoint>().points = new BuildingAttachPoint.HardPoint[1]
             {
