@@ -42,7 +42,7 @@ namespace MattsMods.Industrialization.Storage.STRINGS
 
             public static class STORAGECONTAINERCOLD
             {
-                public static LocString NAME = FormatAsLink("Refridgerated Shipping Container", nameof(STORAGECONTAINERCOLD));
+                public static LocString NAME = FormatAsLink("Cooled Shipping Container", nameof(STORAGECONTAINERCOLD));
                 public static LocString DESC = $"A variant of the {(STORAGECONTAINER.NAME.text)} that is insulated and has a configurable cooler to keep it below a set temperature. Heat removed from storage is pulled into the container itself.";
                 public static LocString EFFECT = "A large modular cold solid storage solution.";
                 public static LocString LOGIC_PORT = "Enable/Disable Cooling";

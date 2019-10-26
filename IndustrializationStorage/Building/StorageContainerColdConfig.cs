@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace MattsMods.Industrialization.Storage.Building
 {
-    // [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageContainerConfig.ID)]
-    // [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE2)]
+    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageContainerConfig.ID)]
+    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE2)]
     public class StorageContainerColdConfig : IBuildingConfig
     {
         public const string ID = "StorageContainerCold";
@@ -56,7 +56,7 @@ namespace MattsMods.Industrialization.Storage.Building
                 },
                 melting_point: BUILDINGS.MELTING_POINT_KELVIN.TIER2,
                 build_location_rule: BuildLocationRule.OnFloorOrBuildingAttachPoint,
-                decor: DECOR.PENALTY.TIER4,
+                decor: DECOR.PENALTY.TIER3,
                 noise: NOISE_POLLUTION.NOISY.TIER2
             );
             def.InputConduitType = ConduitType.Solid;
@@ -64,8 +64,9 @@ namespace MattsMods.Industrialization.Storage.Building
             def.AttachmentSlotTag = StorageContainerConfig.TAG;
             def.AudioCategory = AUDIO.HOLLOW_METAL;
             def.RequiresPowerInput = true;
+            def.PowerInputOffset = new CellOffset(0, 0);
             def.ExhaustKilowattsWhenActive = BUILDINGS.EXHAUST_ENERGY_ACTIVE.TIER2;
-            def.GeneratorBaseCapacity = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER5;
+            def.EnergyConsumptionWhenActive = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER5;
             def.OverheatTemperature = BUILDINGS.OVERHEAT_TEMPERATURES.HIGH_2;
             def.PermittedRotations = PermittedRotations.FlipH;
             return def;
@@ -86,8 +87,8 @@ namespace MattsMods.Industrialization.Storage.Building
             storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             storage.SetDefaultStoredItemModifiers(StoredItemModifiers);
 
-            var storageCold = go.AddOrGet<StorageCold>();
-            storageCold.powerSortOrder = 4; // TODO is there a TUNING enum for this?
+            go.AddOrGet<EnergyConsumer>().powerSortOrder = 4; // TODO is there a TUNING enum for this?
+            go.AddOrGet<StorageCold>();
 
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();

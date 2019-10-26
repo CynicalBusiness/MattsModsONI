@@ -39,19 +39,18 @@ namespace MattsMods.Industrialization.Storage.Building
         public float temperatureMin = 0;
         public float temperatureMax = 100 + Constants.CELSIUS2KELVIN;
         public float temperatureDefault = -4 + Constants.CELSIUS2KELVIN;
-        public int powerSortOrder = 0;
 
         [MyCmpReq]
-        public global::Storage storage;
+        protected global::Storage storage;
 
         [MyCmpGet]
-        public global::Building building;
-
-        [MyCmpAdd]
-        public Battery battery;
+        protected global::Building building;
 
         [MyCmpGet]
-        public Operational operational;
+        protected Operational operational;
+
+        [MyCmpReq]
+        protected EnergyConsumer energyConsumer;
 
         public string SliderUnits => GameUtil.GetTemperatureUnitSuffix();
         public string SliderTitleKey => "STRINGS.UI.UISIDESCREENS.STORAGE_COLD_SIDESCREEN.NAME";
@@ -60,12 +59,12 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public void Sim1000ms (float delta)
         {
-            float toPull = PullEnergy(delta, doPull: false);
+            float toPull = GetCoolingEnergy(delta);
+            energyConsumer.BaseWattageRating = Mathf.RoundToInt(toPull);
             if (toPull > 0)
             {
-                PullEnergy(delta);
-                battery.ConsumeEnergy(toPull);
-                GameComps.StructureTemperatures.ProduceEnergy(structureTemperature, toPull, global::STRINGS.BUILDING.STATUSITEMS.OPERATINGENERGY.EXHAUSTING, delta);
+                GetCoolingEnergy(delta, doPull: true);
+                GameComps.StructureTemperatures.ProduceEnergy(structureTemperature, toPull * 0.1f, global::STRINGS.BUILDING.STATUSITEMS.OPERATINGENERGY.EXHAUSTING, delta);
             }
         }
 
@@ -104,17 +103,9 @@ namespace MattsMods.Industrialization.Storage.Building
             temperatureCurrent = GameUtil.GetTemperatureConvertedToKelvin(val);
         }
 
-        protected override void OnPrefabInit()
-        {
-            base.OnPrefabInit();
-            battery.powerSortOrder = powerSortOrder;
-        }
-
         protected override void OnSpawn()
         {
             base.OnSpawn();
-            battery.capacity = building.Def.EnergyConsumptionWhenActive;
-            battery.chargeWattage = building.Def.EnergyConsumptionWhenActive;
             structureTemperature = GameComps.StructureTemperatures.GetHandle(gameObject);
 
             Subscribe((int)GameHashes.CopySettings, OnCopySettingsDelegate);
@@ -135,6 +126,7 @@ namespace MattsMods.Industrialization.Storage.Building
         private void OnStorageChanged ()
         {
             operational.SetFlag(OperationalFlagHasStorageItems, storage.MassStored() > 0);
+            operational.SetActive(GetStorageHotMass() > 0);
         }
 
         private void OnCopySettings (StorageCold other)
@@ -142,9 +134,9 @@ namespace MattsMods.Industrialization.Storage.Building
             temperatureCurrent = other.temperatureCurrent;
         }
 
-        private float PullEnergy (float delta, bool doPull = true)
+        private float GetCoolingEnergy (float delta, bool doPull = false)
         {
-            if (!operational.IsOperational)
+            if (!operational.IsOperational || !operational.IsActive)
             {
                 return 0;
             }
@@ -208,7 +200,7 @@ namespace MattsMods.Industrialization.Storage.Building
 
         private float GetAvailableCoolingEnergy ()
         {
-            return battery.JoulesAvailable - building.Def.ExhaustKilowattsWhenActive;
+            return energyConsumer.WattsNeededWhenActive - building.Def.ExhaustKilowattsWhenActive;
         }
     }
 }

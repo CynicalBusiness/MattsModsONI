@@ -5,9 +5,12 @@ using UnityEngine;
 namespace MattsMods.Industrialization.Storage.Building
 {
     [SerializationConfig(MemberSerialization.OptIn)]
-    public class LogicStorageSensor : LogicSwitch, IThresholdSwitch, ISaveLoadable, ISim200ms
+    public class LogicStorageSensor : Switch, IThresholdSwitch, ISaveLoadable, ISim200ms
     {
         private static readonly EventSystem.IntraObjectHandler<LogicStorageSensor> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<LogicStorageSensor>(OnCopySettingsHandler);
+        public static readonly EventSystem.IntraObjectHandler<LogicStorageSensor> OnOperationalChangedDelegate = new EventSystem.IntraObjectHandler<LogicStorageSensor>(OnOperationalChangedHandler);
+        private static readonly EventSystem.IntraObjectHandler<LogicStorageSensor> OnStorageChangedDelegate = new EventSystem.IntraObjectHandler<LogicStorageSensor>(OnStorageChangedHandler);
+
         private static void OnCopySettingsHandler (LogicStorageSensor comp, object data)
         {
             var other = ((GameObject) data).GetComponent<LogicStorageSensor>();
@@ -16,6 +19,18 @@ namespace MattsMods.Industrialization.Storage.Building
                 comp.OnCopySettings(other);
             }
         }
+        private static void OnStorageChangedHandler (LogicStorageSensor comp, object data)
+        {
+            comp.OnStorageChanged();
+        }
+
+        public static void OnOperationalChangedHandler (LogicStorageSensor comp, object data)
+        {
+            comp.OnOperationalChanged();
+        }
+
+        [MyCmpGet]
+        public Operational operational;
 
         [MyCmpReq]
         public global::Storage storage;
@@ -106,6 +121,7 @@ namespace MattsMods.Industrialization.Storage.Building
         {
             base.OnPrefabInit();
             Subscribe((int)GameHashes.CopySettings, OnCopySettingsDelegate);
+            Subscribe((int)GameHashes.OnStorageChange, OnStorageChangedDelegate);
             rangeMax = storage.capacityKg;
             manuallyControlled = false;
         }
@@ -117,6 +133,11 @@ namespace MattsMods.Industrialization.Storage.Building
             UpdateLogicCircuit();
             UpdateVisualState(true);
             wasOn = IsSwitchedOn;
+        }
+
+        protected override void UpdateSwitchStatus()
+        {
+            GetComponent<KSelectable>().SetStatusItem(Db.Get().StatusItemCategories.Power, switchedOn ? Db.Get().BuildingStatusItems.LogicSensorStatusActive : Db.Get().BuildingStatusItems.LogicSensorStatusInactive);
         }
 
         private void OnCopySettings (LogicStorageSensor other)
@@ -131,9 +152,21 @@ namespace MattsMods.Industrialization.Storage.Building
             UpdateVisualState(false);
         }
 
+        private void OnStorageChanged ()
+        {
+            UpdateLogicCircuit();
+            UpdateVisualState(false);
+        }
+
+        private void OnOperationalChanged ()
+        {
+            UpdateLogicCircuit();
+            UpdateVisualState(false);
+        }
+
         private void UpdateLogicCircuit ()
         {
-            logicPorts.SendSignal(LogicSwitch.PORT_ID, switchedOn ? 1 : 0);
+            logicPorts.SendSignal(LogicSwitch.PORT_ID, switchedOn && (operational == null || operational.IsOperational) ? 1 : 0);
         }
 
         private void UpdateVisualState (bool force)
