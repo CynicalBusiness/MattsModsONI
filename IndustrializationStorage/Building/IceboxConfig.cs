@@ -27,8 +27,11 @@ namespace MattsMods.Industrialization.Storage.Building
                 anim: "storage_skip_kanim",
                 hitpoints: BUILDINGS.HITPOINTS.TIER1,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER3,
-                construction_mass: new float[]{ BUILDINGS.CONSTRUCTION_MASS_KG.TIER5[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0] },
-                construction_materials: new string[]{ MATERIALS.REFINED_METALS[0], MATERIALS.PLASTICS[0] },
+                construction_mass: new float[]{ BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER2[0] },
+                construction_materials: new string[]{
+                    GameTags.Metal.Name,
+                    ElementLoader.FindElementByHash(SimHashes.Ceramic).tag.Name
+                },
                 melting_point: BUILDINGS.MELTING_POINT_KELVIN.TIER0,
                 build_location_rule: BuildLocationRule.OnFloorOrBuildingAttachPoint,
                 decor: BUILDINGS.DECOR.PENALTY.TIER3,
@@ -39,6 +42,7 @@ namespace MattsMods.Industrialization.Storage.Building
             def.PermittedRotations = PermittedRotations.FlipH;
             def.RequiresPowerInput = true;
             def.ViewMode = OverlayModes.Power.ID;
+            def.OverheatTemperature = BUILDINGS.OVERHEAT_TEMPERATURES.HIGH_1;
             return def;
         }
 

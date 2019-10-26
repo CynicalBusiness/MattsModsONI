@@ -22,6 +22,15 @@ namespace MattsMods.Industrialization.Storage
 
         }
 
+        [HarmonyPatch(typeof(RefrigeratorConfig), "CreateBuildingDef")]
+        private static class Patch_RefrigeratorConfig_CreateBuildingDef
+        {
+            public static void Postfix (BuildingDef __result)
+            {
+                __result.MaterialCategory = TUNING.MATERIALS.ALL_METALS;
+            }
+        }
+
         [HarmonyPatch(typeof(Rottable), nameof(Rottable.IsRefrigerated))]
         private static class Patch_Rottable_IsRefrigerated
         {

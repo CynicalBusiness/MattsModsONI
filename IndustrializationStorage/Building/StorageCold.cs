@@ -161,7 +161,7 @@ namespace MattsMods.Industrialization.Storage.Building
                             element.Temperature += GameUtil.CalculateTemperatureChange(
                                 element.Element.specificHeatCapacity,
                                 element.Mass,
-                                -deltaTemp
+                                -(deltaTemp * thermalEfficiency)
                             );
                         }
                     }
@@ -200,7 +200,7 @@ namespace MattsMods.Industrialization.Storage.Building
 
         private float GetAvailableCoolingEnergy ()
         {
-            return energyConsumer.WattsNeededWhenActive - building.Def.ExhaustKilowattsWhenActive;
+            return energyConsumer.WattsNeededWhenActive;
         }
     }
 }

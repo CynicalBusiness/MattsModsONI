@@ -46,13 +46,13 @@ namespace MattsMods.Industrialization.Storage.Building
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER6,
                 construction_mass: new float[]{
                     BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0],
-                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER3[0],
-                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER2[0]
+                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER2[0],
+                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0]
                 },
                 construction_materials: new string[]{
-                    GameTags.Steel.Name,
                     GameTags.RefinedMetal.Name,
-                    GameTags.Plastic.Name
+                    GameTags.Plastic.Name,
+                    ElementLoader.FindElementByHash(SimHashes.Ceramic).tag.Name
                 },
                 melting_point: BUILDINGS.MELTING_POINT_KELVIN.TIER2,
                 build_location_rule: BuildLocationRule.OnFloorOrBuildingAttachPoint,
