@@ -12,7 +12,7 @@ namespace MattsMods.IndustrializationFundementals.Building
 
         public static readonly Tag TAG_WOOD = IndustrializationFundementalsMod.Tags.WoodLogs;
         public static readonly Tag TAG_LUMBER = IndustrializationFundementalsMod.Tags.Lumber;
-        public static readonly Tag TAG_SAWDUST = TagManager.Create(ElementConfig.Sawdust.ID + Element.State.Solid);
+        public static readonly Tag TAG_SAWDUST = TagManager.Create("Sawdust");
 
         public override BuildingDef CreateBuildingDef()
         {
@@ -79,9 +79,9 @@ namespace MattsMods.IndustrializationFundementals.Building
             {
                 var woodId = woodE.tag.Name;
                 IndustrializationFundementalsMod.ModLogger.Debug(woodId);
-                if (woodId.StartsWith(ElementConfig.PREFIX_WOOD))
+                if (woodId.StartsWith(IndustrializationFundementalsMod.PREFIX_WOOD))
                 {
-                    var lumberId = ElementConfig.PREFIX_LUMBER + woodId.Substring(ElementConfig.PREFIX_WOOD.Length);
+                    var lumberId = IndustrializationFundementalsMod.PREFIX_LUMBER + woodId.Substring(IndustrializationFundementalsMod.PREFIX_WOOD.Length);
                     IndustrializationFundementalsMod.ModLogger.Debug(lumberId);
                     var lumberE = ElementLoader.FindElementByName(lumberId);
 
@@ -100,7 +100,7 @@ namespace MattsMods.IndustrializationFundementals.Building
                         new ComplexRecipe(id, inputs, outputs)
                         {
                             time = BUILDINGS.FABRICATION_TIME_SECONDS.SHORT,
-                            description = string.Format(STRINGS.BUILDINGS.PREFABS.KILN.RECIPE_CHARCOAL_DESCRIPTION, woodE.name, lumberE.name, STRINGS.ELEMENTS.SAWDUSTSOLID.NAME),
+                            description = string.Format(STRINGS.BUILDINGS.PREFABS.KILN.RECIPE_CHARCOAL_DESCRIPTION, woodE.name, lumberE.name, STRINGS.ELEMENTS.SAWDUST.NAME),
                             nameDisplay = ComplexRecipe.RecipeNameDisplay.Ingredient,
                             fabricators = new List<Tag>(){ TagManager.Create(ID) }
                         };

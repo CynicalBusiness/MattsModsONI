@@ -41,7 +41,7 @@ namespace MattsMods.IndustrializationFundementals.STRINGS
             public static class SAWMILL
             {
                 public static LocString NAME = FormatAsLink("Sawmill", nameof(SAWMILL));
-                public static LocString DESC = $"Processes {FormatAsLink("Wood", Tags.WoodLogs.Name)} into {FormatAsLink("Lumber", Tags.Lumber.Name)} and a small amount of {FormatAsLink("Sawdust", ElementConfig.Sawdust.ID + Element.State.Solid)}";
+                public static LocString DESC = $"Processes {FormatAsLink("Wood", Tags.WoodLogs.Name)} into {FormatAsLink("Lumber", Tags.Lumber.Name)} and a small amount of {FormatAsLink("Sawdust", nameof(ELEMENTS.SAWDUST))}";
                 public static LocString EFFECT = $"Initial processing station for {FormatAsLink("Wood", Tags.WoodLogs.Name)}.";
             }
 

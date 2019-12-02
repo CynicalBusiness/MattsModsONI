@@ -26,6 +26,9 @@ namespace MattsMods.IndustrializationFundementals
             public static readonly Tag Waste = TagManager.Create(nameof(Waste));
         }
 
+        public const string PREFIX_WOOD = "Wood";
+        public const string PREFIX_LUMBER = "Lumber";
+
         public override string Name => "Matt's Mods: Industrialization Fundementals";
 
         public override string Prefix => "MM:IndyFundementals";
@@ -67,6 +70,7 @@ namespace MattsMods.IndustrializationFundementals
                 Tags.BuildingBlockHeavy,
                 Tags.Waste
             });
+            TUNING.CROPS.CROP_TYPES.Add(new Crop.CropVal("WoodArbor", 2700f, 300, true));
         }
 
         public override void Initialize()
@@ -78,31 +82,31 @@ namespace MattsMods.IndustrializationFundementals
 
         public override void PostInitialize()
         {
-            ElementManager.AddTags(new Dictionary<Element, Tag>(){
+            ElementManager.AddBulkTags(new Dictionary<Element, Tag[]>(){
                 {
                     // Sand is a powder
                     ElementLoader.FindElementByHash(SimHashes.Sand),
-                    Tags.Silt
+                    new Tag[] { Tags.Silt }
                 },
                 {
                     // Regolith is a silt
                     ElementLoader.FindElementByHash(SimHashes.Regolith),
-                    Tags.Silt
+                    new Tag[] { Tags.Silt }
                 },
                 {
                     // Fertilizer is a soil
                     ElementLoader.FindElementByHash(SimHashes.Fertilizer),
-                    GameTags.Farmable
+                    new Tag[] { GameTags.Farmable }
                 },
                 {
                     // Steel is an alloy
                     ElementLoader.FindElementByHash(SimHashes.Steel),
-                    GameTags.Alloy
+                    new Tag[] { GameTags.Alloy }
                 },
                 {
                     // Thermium is an alloy
                     ElementLoader.FindElementByHash(SimHashes.TempConductorSolid),
-                    GameTags.Alloy
+                    new Tag[] { GameTags.Alloy }
                 }
             });
 

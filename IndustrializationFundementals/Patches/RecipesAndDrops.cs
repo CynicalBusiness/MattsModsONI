@@ -14,7 +14,7 @@ namespace MattsMods.IndustrializationFundementals.Patches
             {
                 if (crop_id == "WoodLog")
                 {
-                    crop_id = ElementConfig.WoodArbor.ID + "Solid";
+                    crop_id = "WoodArbor";
                 }
             }
 
@@ -62,8 +62,8 @@ namespace MattsMods.IndustrializationFundementals.Patches
             public static void Postfix()
             {
                 var charcoalInput1 = IndustrializationFundementalsMod.Tags.WoodLogs;
-                var charcoalOutput1 = TagManager.Create("CharcoalSolid");
-                var charcoalOutput2 = TagManager.Create("AshSolid");
+                var charcoalOutput1 = TagManager.Create("Charcoal");
+                var charcoalOutput2 = TagManager.Create("Ash");
                 var amountIn = 100f;
                 var amountOutMost = 90f;
                 var amountOutLeast = 10f;
@@ -84,7 +84,7 @@ namespace MattsMods.IndustrializationFundementals.Patches
                     var charcoalRecipe = new ComplexRecipe(id, charcoalInputs, charcoalOutputs)
                     {
                         time = TUNING.BUILDINGS.FABRICATION_TIME_SECONDS.SHORT,
-                        description = string.Format(STRINGS.BUILDINGS.PREFABS.KILN.RECIPE_CHARCOAL_DESCRIPTION, element.name, ElementLoader.FindElementByName("CharcoalSolid").name, ElementLoader.FindElementByName("AshSolid").name),
+                        description = string.Format(STRINGS.BUILDINGS.PREFABS.KILN.RECIPE_CHARCOAL_DESCRIPTION, element.name, ElementLoader.FindElementByName(charcoalOutput1.Name).name, ElementLoader.FindElementByName(charcoalOutput2.Name).name),
                         fabricators = new List<Tag>()
                         {
                             TagManager.Create(KilnConfig.ID)

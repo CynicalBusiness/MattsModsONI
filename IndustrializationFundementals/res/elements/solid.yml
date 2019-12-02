@@ -1,5 +1,5 @@
 elements:
-  - elementId: CharcoalSolid
+  - elementId: Charcoal
     # TODO tuning
     specificHeatCapacity: 1
     thermalConductivity: 0.2
@@ -9,7 +9,7 @@ elements:
     gasSurfaceAreaMultiplier: 1
     strength: 1
     highTemp: 973.15 # 300C
-    highTempTransitionTarget: AshSolid
+    highTempTransitionTarget: Ash
     defaultTemperature: 290
     defaultMass: 100
     maxMass: 300
@@ -21,9 +21,15 @@ elements:
     buildMenuSort: 3
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.CHARCOALSOLID.NAME
+    anim: carbon
+    color:
+      r: 50
+      g: 50
+      b: 50
+      a: 255
+    localizationID: STRINGS.ELEMENTS.CHARCOAL.NAME
 
-  - elementId: AshSolid
+  - elementId: Ash
     # TODO tuning
     specificHeatCapacity: 1
     thermalConductivity: 0.2
@@ -45,9 +51,15 @@ elements:
     buildMenuSort: 3
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.ASHSOLID.NAME
+    anim: limestone
+    color:
+      r: 200
+      g: 200
+      b: 200
+      a: 255
+    localizationID: STRINGS.ELEMENTS.ASH.NAME
 
-  - elementId: SawdustSolid
+  - elementId: Sawdust
     # TODO tuning
     specificHeatCapacity: 1
     thermalConductivity: 0.2
@@ -69,9 +81,15 @@ elements:
     buildMenuSort: 3
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.SAWDUSTSOLID.NAME
+    anim: limestone
+    color:
+      r: 204
+      g: 164
+      b: 121
+      a: 255
+    localizationID: STRINGS.ELEMENTS.SAWDUST.NAME
 
-  - elementId: WoodArborSolid
+  - elementId: WoodArbor
     # TODO tuning
     specificHeatCapacity: 1
     thermalConductivity: 0.2
@@ -81,7 +99,7 @@ elements:
     gasSurfaceAreaMultiplier: 1.2
     strength: 1
     highTemp: 573.15 # 300C
-    highTempTransitionTarget: CharcoalSolid
+    highTempTransitionTarget: Charcoal
     defaultTemperature: 290
     defaultMass: 200
     maxMass: 300
@@ -92,9 +110,21 @@ elements:
     buildMenuSort: 1
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.WOODARBORSOLID.NAME
+    attributes:
+      - attributeId: Decor
+        value: 0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: -25
+        isMultiplier: false
+    color:
+      r: 117
+      g: 72
+      b: 40
+      a: 255
+    localizationID: STRINGS.ELEMENTS.WOODARBOR.NAME
 
-  - elementId: LumberArborSolid
+  - elementId: LumberArbor
     # TODO tuning
     specificHeatCapacity: 1
     thermalConductivity: 0.2
@@ -116,9 +146,16 @@ elements:
     buildMenuSort: 1
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.LUMBERARBORSOLID.NAME
+    attributes:
+      - attributeId: Decor
+        value: 0.25
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: -25
+        isMultiplier: false
+    localizationID: STRINGS.ELEMENTS.LUMBERARBOR.NAME
 
-  - elementId: BrickRedSolid
+  - elementId: BrickRed
     specificHeatCapacity: 0.75
     thermalConductivity: 0.8
     solidSurfaceAreaMultiplier: 1
@@ -141,9 +178,21 @@ elements:
     buildMenuSort: 5
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.BRICKREDSOLID.NAME
+    attributes:
+      - attributeId: Decor
+        value: 0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: 200
+        isMultiplier: false
+    color:
+      r: 255
+      g: 115
+      b: 87
+      a: 255
+    localizationID: STRINGS.ELEMENTS.BRICKRED.NAME
 
-  - elementId: BrickGraySolid
+  - elementId: BrickGray
     specificHeatCapacity: 0.75
     thermalConductivity: 0.8
     solidSurfaceAreaMultiplier: 1
@@ -166,9 +215,21 @@ elements:
     buildMenuSort: 5
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.BRICKGRAYSOLID.NAME
+    attributes:
+      - attributeId: Decor
+        value: -0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: 200
+        isMultiplier: false
+    color:
+      r: 210
+      g: 210
+      b: 210
+      a: 255
+    localizationID: STRINGS.ELEMENTS.BRICKGRAY.NAME
 
-  - elementId: ConcreteSolid
+  - elementId: Concrete
     specificHeatCapacity: 0.75
     thermalConductivity: 0.8
     solidSurfaceAreaMultiplier: 1
@@ -192,53 +253,75 @@ elements:
     buildMenuSort: 5
     isDisabled: false
     state: Solid
-    localizationID: STRINGS.ELEMENTS.CONCRETESOLID.NAME
+    attributes:
+      - attributeId: Decor
+        value: -0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: 200
+        isMultiplier: false
+    color:
+      r: 230
+      g: 230
+      b: 230
+      a: 255
+    localizationID: STRINGS.ELEMENTS.CONCRETE.NAME
 
-  - elementId: SlagSolid
-    specificHeatCapacity: 0.449
-    thermalConductivity: 1
-    solidSurfaceAreaMultiplier: 1
-    liquidSurfaceAreaMultiplier: 1
-    gasSurfaceAreaMultiplier: 1
-    strength: 0.8
-    highTemp: 1808
-    highTempTransitionTarget: Magma
-    defaultTemperature: 242.15
-    defaultMass: 1000
-    maxMass: 2000
-    # hardnessTier: 4
-    hardness: 25
-    molarMass: 25
-    lightAbsorptionFactor: 1
-    materialCategory: Waste
-    tags:
-    - Crushable
-    - BuildableAny
-    buildMenuSort: 5
-    isDisabled: false
-    state: Solid
-    localizationID: STRINGS.ELEMENTS.SLAGSOLID.NAME
+  # - elementId: SlagSolid
+  #   specificHeatCapacity: 0.449
+  #   thermalConductivity: 1
+  #   solidSurfaceAreaMultiplier: 1
+  #   liquidSurfaceAreaMultiplier: 1
+  #   gasSurfaceAreaMultiplier: 1
+  #   strength: 0.8
+  #   highTemp: 1808
+  #   highTempTransitionTarget: Magma
+  #   defaultTemperature: 242.15
+  #   defaultMass: 1000
+  #   maxMass: 2000
+  #   # hardnessTier: 4
+  #   hardness: 25
+  #   molarMass: 25
+  #   lightAbsorptionFactor: 1
+  #   materialCategory: Waste
+  #   tags:
+  #   - Crushable
+  #   - BuildableAny
+  #   buildMenuSort: 5
+  #   isDisabled: false
+  #   state: Solid
+  #   color:
+  #     r: 220
+  #     g: 180
+  #     b: 180
+  #     a: 255
+  #   localizationID: STRINGS.ELEMENTS.SLAGSOLID.NAME
 
-  - elementId: CementSolid
-    specificHeatCapacity: 0.75
-    thermalConductivity: 0.8
-    solidSurfaceAreaMultiplier: 1
-    liquidSurfaceAreaMultiplier: 1
-    gasSurfaceAreaMultiplier: 1
-    strength: 0.1
-    highTemp: 2123
-    highTempTransitionTarget: Magma
-    defaultTemperature: 242.15
-    defaultMass: 1000
-    maxMass: 2000
-    # hardnessTier: 4
-    hardness: 25
-    molarMass: 25
-    lightAbsorptionFactor: 1
-    materialCategory: Powder
-    tags:
-    - IndustrialIngredient
-    buildMenuSort: 5
-    isDisabled: false
-    state: Solid
-    localizationID: STRINGS.ELEMENTS.CEMENTSOLID.NAME
+  # - elementId: Cement
+  #   specificHeatCapacity: 0.75
+  #   thermalConductivity: 0.8
+  #   solidSurfaceAreaMultiplier: 1
+  #   liquidSurfaceAreaMultiplier: 1
+  #   gasSurfaceAreaMultiplier: 1
+  #   strength: 0.1
+  #   highTemp: 2123
+  #   highTempTransitionTarget: Magma
+  #   defaultTemperature: 242.15
+  #   defaultMass: 1000
+  #   maxMass: 2000
+  #   # hardnessTier: 4
+  #   hardness: 25
+  #   molarMass: 25
+  #   lightAbsorptionFactor: 1
+  #   materialCategory: Powder
+  #   tags:
+  #   - IndustrialIngredient
+  #   buildMenuSort: 5
+  #   isDisabled: false
+  #   state: Solid
+  #   color:
+  #     r: 200
+  #     g: 200
+  #     b: 200
+  #     a: 255
+  #   localizationID: STRINGS.ELEMENTS.CEMENT.NAME
