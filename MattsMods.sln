@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationFundementa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationStorage", "IndustrializationStorage\IndustrializationStorage.csproj", "{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationElectrical", "IndustrializationElectrical\IndustrializationElectrical.csproj", "{C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationAgriculture", "IndustrializationAgricultre\IndustrializationAgriculture.csproj", "{74D28F24-2CFD-4363-A57E-FB78AD423669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+        {C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+        {74D28F24-2CFD-4363-A57E-FB78AD423669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {74D28F24-2CFD-4363-A57E-FB78AD423669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {74D28F24-2CFD-4363-A57E-FB78AD423669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {74D28F24-2CFD-4363-A57E-FB78AD423669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
