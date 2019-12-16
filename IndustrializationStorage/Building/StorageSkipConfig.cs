@@ -26,7 +26,7 @@ namespace MattsMods.Industrialization.Storage.Building
                 id: ID,
                 width: 3,
                 height: 2,
-                anim: "storage_skip_kanim",
+                anim: "storageSkip_kanim",
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
                 construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER5,
@@ -55,6 +55,7 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<DropAllWorkable>();
+            Prioritizable.AddRef(go);
         }
     }
 
