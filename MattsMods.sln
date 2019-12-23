@@ -7,13 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustableTransformers", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationFundementals", "IndustrializationFundementals\IndustrializationFundementals.csproj", "{247F788E-6C54-483D-843A-C99F2187DFB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationStorage", "IndustrializationStorage\IndustrializationStorage.csproj", "{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationAgriculture", "IndustrializationAgriculture\IndustrializationAgriculture.csproj", "{74D28F24-2CFD-4363-A57E-FB78AD423669}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationElectrical", "IndustrializationElectrical\IndustrializationElectrical.csproj", "{C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationAgriculture", "IndustrializationAgriculture\IndustrializationAgriculture.csproj", "{74D28F24-2CFD-4363-A57E-FB78AD423669}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationLogic", "IndustrializationLogic\IndustrializationLogic.csproj", "{0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}"
 EndProject
-Project("{0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}") = "MarbleSculpturesAddon", "MarbleSculpturesAddon\MarbleSculpturesAddon.csproj", "{0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationStorage", "IndustrializationStorage\IndustrializationStorage.csproj", "{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarbleSculpturesAddon", "MarbleSculpturesAddon\MarbleSculpturesAddon.csproj", "{0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
         {0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
         {0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
         {0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+        {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
