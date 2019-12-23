@@ -43,7 +43,6 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
         {
-            Prioritizable.AddRef(go);
             var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
             storage.showDescriptor = true;
@@ -55,6 +54,8 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<DropAllWorkable>();
+
+            Prioritizable.AddRef(go);
         }
 
         public override void DoPostConfigureComplete(UnityEngine.GameObject go)

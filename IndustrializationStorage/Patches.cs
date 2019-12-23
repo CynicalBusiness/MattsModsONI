@@ -1,6 +1,7 @@
 
 using MattsMods.Industrialization.Storage.Building;
 using Harmony;
+using System.Reflection;
 using UnityEngine;
 
 namespace MattsMods.Industrialization.Storage
@@ -47,6 +48,15 @@ namespace MattsMods.Industrialization.Storage
                     }
                 }
                 return true;
+            }
+        }
+
+        [HarmonyPatch(typeof(FilteredStorage), "UpdateMeter")]
+        private static class Patch_FilteredStorage_UpdateMeter
+        {
+            public static void Postfix (FilteredStorage __instance, StorageLocker ___root)
+            {
+                ___root.Trigger(StorageSecondaryMeter.OnOriginalMeterUpdate, null);
             }
         }
 
