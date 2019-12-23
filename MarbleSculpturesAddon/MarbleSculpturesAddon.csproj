@@ -5,7 +5,6 @@
 
   <PropertyGroup>
     <ProjectGuid>{0A3694B5-03D8-4E82-87C5-FE6419A1CA3E}</ProjectGuid>
-    <RootNamespace>MattsMods.MarbleSculptureAddon</RootNamespace>
     <AssemblyName>MarbleSculptureAddon</AssemblyName>
   </PropertyGroup>
   <Import Project="..\MattsMods.Macros.props" />
