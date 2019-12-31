@@ -24,7 +24,7 @@ namespace MattsMods.Industrialization.Storage.Building
         {
             foreach (var cell in GetLeftCells())
             {
-                Grid.HasLadder[cell] = toggle;
+                Grid.HasLadder[Grid.OffsetCell(cell, new CellOffset(1, 0))] = toggle;
             }
         }
 

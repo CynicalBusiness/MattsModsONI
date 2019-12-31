@@ -149,24 +149,24 @@ namespace MattsMods.Industrialization.Storage.Building
         private void OnSwitchToggled (bool newState)
         {
             UpdateLogicCircuit();
-            UpdateVisualState(false);
         }
 
         private void OnStorageChanged ()
         {
             UpdateLogicCircuit();
-            UpdateVisualState(false);
         }
 
         private void OnOperationalChanged ()
         {
             UpdateLogicCircuit();
-            UpdateVisualState(false);
         }
 
         private void UpdateLogicCircuit ()
         {
+            Debug.LogFormat("container logic update {0} {1}", switchedOn, (operational == null || operational.IsOperational));
             logicPorts.SendSignal(LogicSwitch.PORT_ID, switchedOn && (operational == null || operational.IsOperational) ? 1 : 0);
+            this.UpdateVisualState(false);
+            this.UpdateSwitchStatus();
         }
 
         private void UpdateVisualState (bool force)
