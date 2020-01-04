@@ -173,8 +173,8 @@ elements:
     lightAbsorptionFactor: 1
     materialCategory: BuildingBlock
     tags:
-    - Crushable
-    - BuildableAny
+      - Crushable
+      - BuildableAny
     buildMenuSort: 5
     isDisabled: false
     state: Solid
@@ -210,8 +210,8 @@ elements:
     lightAbsorptionFactor: 1
     materialCategory: BuildingBlock
     tags:
-    - Crushable
-    - BuildableAny
+      - Crushable
+      - BuildableAny
     buildMenuSort: 5
     isDisabled: false
     state: Solid
@@ -228,45 +228,43 @@ elements:
       b: 210
       a: 255
     localizationID: STRINGS.ELEMENTS.BRICKGRAY.NAME
-
-  - elementId: Concrete
-    specificHeatCapacity: 0.75
-    thermalConductivity: 0.8
-    solidSurfaceAreaMultiplier: 1
-    liquidSurfaceAreaMultiplier: 1
-    gasSurfaceAreaMultiplier: 1
-    strength: 1
-    highTemp: 2123
-    highTempTransitionTarget: Magma
-    defaultTemperature: 242.15
-    defaultMass: 1000
-    maxMass: 2000
-    # hardnessTier: 4
-    hardness: 50
-    molarMass: 25
-    lightAbsorptionFactor: 1
-    materialCategory: BuildingBlock
-    tags:
-    - BuildingBlockHeavy
-    - Crushable
-    - BuildableAny
-    buildMenuSort: 5
-    isDisabled: false
-    state: Solid
-    attributes:
-      - attributeId: Decor
-        value: -0.1
-        isMultiplier: true
-      - attributeId: OverheatTemperature
-        value: 200
-        isMultiplier: false
-    color:
-      r: 230
-      g: 230
-      b: 230
-      a: 255
-    localizationID: STRINGS.ELEMENTS.CONCRETE.NAME
-
+  # - elementId: Concrete
+  #   specificHeatCapacity: 0.75
+  #   thermalConductivity: 0.8
+  #   solidSurfaceAreaMultiplier: 1
+  #   liquidSurfaceAreaMultiplier: 1
+  #   gasSurfaceAreaMultiplier: 1
+  #   strength: 1
+  #   highTemp: 2123
+  #   highTempTransitionTarget: Magma
+  #   defaultTemperature: 242.15
+  #   defaultMass: 1000
+  #   maxMass: 2000
+  #   # hardnessTier: 4
+  #   hardness: 50
+  #   molarMass: 25
+  #   lightAbsorptionFactor: 1
+  #   materialCategory: BuildingBlock
+  #   tags:
+  #   - BuildingBlockHeavy
+  #   - Crushable
+  #   - BuildableAny
+  #   buildMenuSort: 5
+  #   isDisabled: false
+  #   state: Solid
+  #   attributes:
+  #     - attributeId: Decor
+  #       value: -0.1
+  #       isMultiplier: true
+  #     - attributeId: OverheatTemperature
+  #       value: 200
+  #       isMultiplier: false
+  #   color:
+  #     r: 230
+  #     g: 230
+  #     b: 230
+  #     a: 255
+  #   localizationID: STRINGS.ELEMENTS.CONCRETE.NAME
   # - elementId: SlagSolid
   #   specificHeatCapacity: 0.449
   #   thermalConductivity: 1
@@ -296,7 +294,6 @@ elements:
   #     b: 180
   #     a: 255
   #   localizationID: STRINGS.ELEMENTS.SLAGSOLID.NAME
-
   # - elementId: Cement
   #   specificHeatCapacity: 0.75
   #   thermalConductivity: 0.8
