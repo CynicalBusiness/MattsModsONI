@@ -21,12 +21,12 @@ namespace MattsMods.Industrialization.Storage.Building
             global::Storage.StoredItemModifier.Seal
         };
 
-        private static readonly LogicPorts.Port[] INPUT_PORTS = new LogicPorts.Port[1]
+        private static readonly List<LogicPorts.Port> INPUT_PORTS = new List<LogicPorts.Port>()
         {
             LogicPorts.Port.InputPort(LogicOperationalController.PORT_ID, new CellOffset(-1, 1), STRINGS.BUILDINGS.PREFABS.STORAGEGAS.LOGIC_PORT, STRINGS.BUILDINGS.PREFABS.STORAGEGAS.LOGIC_PORT_ACTIVE, STRINGS.BUILDINGS.PREFABS.STORAGEGAS.LOGIC_PORT_INACTIVE)
         };
 
-        private static readonly LogicPorts.Port[] OUTPUT_PORTS = new LogicPorts.Port[1]
+        private static readonly List<LogicPorts.Port> OUTPUT_PORTS = new List<LogicPorts.Port>()
         {
             LogicPorts.Port.OutputPort(LogicSwitch.PORT_ID, new CellOffset(1, 0), global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT, global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT_ACTIVE, global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT_INACTIVE)
         };
@@ -58,6 +58,8 @@ namespace MattsMods.Industrialization.Storage.Building
             def.PermittedRotations = PermittedRotations.FlipH;
             def.attachablePosition = new CellOffset(1, 0);
             def.AttachmentSlotTag = TAG;
+            def.LogicInputPorts = INPUT_PORTS;
+            def.LogicOutputPorts = OUTPUT_PORTS;
             return def;
         }
 
@@ -97,20 +99,9 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<LogicOperationalController>();
         }
 
-        public override void DoPostConfigurePreview(BuildingDef def, GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, INPUT_PORTS, OUTPUT_PORTS);
-        }
-
-        public override void DoPostConfigureUnderConstruction(GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, INPUT_PORTS, OUTPUT_PORTS);
-        }
-
         public override void DoPostConfigureComplete(GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();
-            GeneratedBuildings.RegisterLogicPorts(go, INPUT_PORTS, OUTPUT_PORTS);
         }
     }
 }

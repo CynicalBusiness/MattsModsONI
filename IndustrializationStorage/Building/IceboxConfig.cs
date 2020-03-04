@@ -13,7 +13,7 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public const string ID = "Icebox";
 
-        private static readonly LogicPorts.Port[] OUTPUT_PORTS = new LogicPorts.Port[1]
+        private static readonly List<LogicPorts.Port> OUTPUT_PORTS = new List<LogicPorts.Port>()
         {
             LogicPorts.Port.OutputPort(LogicSwitch.PORT_ID, new CellOffset(1, 0), STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT_ACTIVE, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT_INACTIVE)
         };
@@ -43,6 +43,7 @@ namespace MattsMods.Industrialization.Storage.Building
             def.RequiresPowerInput = true;
             def.ViewMode = OverlayModes.Power.ID;
             def.OverheatTemperature = BUILDINGS.OVERHEAT_TEMPERATURES.HIGH_1;
+            def.LogicOutputPorts = OUTPUT_PORTS;
             return def;
         }
 
@@ -70,20 +71,9 @@ namespace MattsMods.Industrialization.Storage.Building
             go.AddOrGet<LogicStorageSensor>();
         }
 
-        public override void DoPostConfigurePreview(BuildingDef def, UnityEngine.GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORTS);
-        }
-
-        public override void DoPostConfigureUnderConstruction(UnityEngine.GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORTS);
-        }
-
         public override void DoPostConfigureComplete(UnityEngine.GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();
-            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORTS);
         }
     }
 }

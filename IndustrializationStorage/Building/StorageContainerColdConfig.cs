@@ -25,12 +25,12 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public readonly Tag TAG = TagManager.Create(ID);
 
-        private static readonly LogicPorts.Port[] INPUT_PORTS = new LogicPorts.Port[1]
+        private static readonly List<LogicPorts.Port> INPUT_PORTS = new List<LogicPorts.Port>()
         {
             LogicPorts.Port.InputPort(LogicOperationalController.PORT_ID, new CellOffset(-1, 1), STRINGS.BUILDINGS.PREFABS.STORAGECONTAINERCOLD.LOGIC_PORT, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINERCOLD.LOGIC_PORT_ACTIVE, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINERCOLD.LOGIC_PORT_INACTIVE)
         };
 
-        private static readonly LogicPorts.Port[] OUTPUT_PORTS = new LogicPorts.Port[1]
+        private static readonly List<LogicPorts.Port> OUTPUT_PORTS = new List<LogicPorts.Port>()
         {
             LogicPorts.Port.OutputPort(LogicSwitch.PORT_ID, new CellOffset(1, 0), STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT_ACTIVE, STRINGS.BUILDINGS.PREFABS.STORAGECONTAINER.LOGIC_PORT_INACTIVE)
         };
@@ -69,6 +69,8 @@ namespace MattsMods.Industrialization.Storage.Building
             def.EnergyConsumptionWhenActive = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER6;
             def.OverheatTemperature = BUILDINGS.OVERHEAT_TEMPERATURES.HIGH_2;
             def.PermittedRotations = PermittedRotations.FlipH;
+            def.LogicInputPorts = INPUT_PORTS;
+            def.LogicOutputPorts = OUTPUT_PORTS;
             return def;
         }
 
@@ -102,21 +104,10 @@ namespace MattsMods.Industrialization.Storage.Building
             };
         }
 
-        public override void DoPostConfigurePreview(BuildingDef def, UnityEngine.GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, INPUT_PORTS, OUTPUT_PORTS);
-        }
-
-        public override void DoPostConfigureUnderConstruction(UnityEngine.GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, INPUT_PORTS, OUTPUT_PORTS);
-        }
-
         public override void DoPostConfigureComplete(UnityEngine.GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();
             go.AddOrGetDef<PoweredActiveController.Def>();
-            GeneratedBuildings.RegisterLogicPorts(go, INPUT_PORTS, OUTPUT_PORTS);
         }
     }
 }

@@ -24,11 +24,13 @@ namespace MattsMods.Industrialization.Storage.Building
 
         public global::Storage storage;
 
+        #pragma warning disable 649
         [MyCmpGet]
         private KBatchedAnimController animController;
 
         [MyCmpGet]
         private StorageLocker storageLocker;
+        #pragma warning restore 649
 
         private MeterController storageMeter;
 

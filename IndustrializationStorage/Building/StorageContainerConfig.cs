@@ -1,5 +1,6 @@
 using PipLib.Building;
 using TUNING;
+using System.Collections.Generic;
 
 namespace MattsMods.Industrialization.Storage.Building
 {
@@ -49,13 +50,13 @@ namespace MattsMods.Industrialization.Storage.Building
             def.Floodable = false;
             def.Overheatable = false;
             def.AudioCategory = AUDIO.HOLLOW_METAL;
+            def.LogicOutputPorts = new List<LogicPorts.Port>(){OUTPUT_PORT};
             return def;
         }
 
         public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
         {
-            BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), TAG);
-            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORT);
+            // BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), TAG);
 
             var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
@@ -76,16 +77,6 @@ namespace MattsMods.Industrialization.Storage.Building
             {
                 new BuildingAttachPoint.HardPoint(new CellOffset(0, 3), TAG, null)
             };
-        }
-
-        public override void DoPostConfigurePreview(BuildingDef def, UnityEngine.GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORT);
-        }
-
-        public override void DoPostConfigureUnderConstruction(UnityEngine.GameObject go)
-        {
-            GeneratedBuildings.RegisterLogicPorts(go, OUTPUT_PORT);
         }
 
         public override void DoPostConfigureComplete(UnityEngine.GameObject go)
