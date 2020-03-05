@@ -3,7 +3,7 @@ using System.Reflection.Emit;
 using System.Collections.Generic;
 using Harmony;
 
-namespace MattsMods.Industrialization.Logic.LogicNetwork
+namespace MattsMods.Industrialization.Logic.Patches
 {
 
     [HarmonyPatch(typeof(UtilityNetwork), MethodType.Constructor, new Type[0])]
