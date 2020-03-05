@@ -3,7 +3,7 @@ using PipLib.Building;
 namespace MattsMods.Industrialization.Logic.Building
 {
     [BuildingInfo.OnPlanScreen(ID, "Automation", AfterId = LogicRibbonConfig.ID)]
-    [BuildingInfo.TechRequirement(ID, "HighDensityAutomation")]
+    [BuildingInfo.TechRequirement(ID, Mod.TECH_HIGHDENSITYAUTOMATION)]
     public class LogicCableConfig : BaseLogicWireConfig
     {
 
