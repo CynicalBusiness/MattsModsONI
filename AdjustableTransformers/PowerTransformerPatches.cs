@@ -5,14 +5,20 @@ namespace MattsMods.AdjustableTransformers
 {
     public static class PowerTransformerPatches
     {
+        private static HarmonyInstance harmonyInstance;
+
+        public static void PrePatch (HarmonyInstance harmonyInstance)
+        {
+            PowerTransformerPatches.harmonyInstance = harmonyInstance;
+        }
+
         public static void OnLoad ()
         {
             LocString.CreateLocStringKeys(typeof(MattsMods.AdjustableTransformers.STRINGS.UI));
         }
 
         // === Large Power Transformer
-        [HarmonyPatch(typeof(PowerTransformerConfig))]
-        [HarmonyPatch("CreateBuildingDef")]
+        [HarmonyPatch(typeof(PowerTransformerConfig), "CreateBuildingDef")]
         private static class Patch_PowerTransformerConfig_CreateBuildingDef
         {
             public static void Postfix(BuildingDef __result)
@@ -22,8 +28,7 @@ namespace MattsMods.AdjustableTransformers
             }
         }
 
-        [HarmonyPatch(typeof(PowerTransformerConfig))]
-        [HarmonyPatch("ConfigureBuildingTemplate")]
+        [HarmonyPatch(typeof(PowerTransformerConfig), "ConfigureBuildingTemplate")]
         private static class Patch_PowerTransformerConfig_ConfigureBuildingTemplate
         {
             public static void Postfix(GameObject go)
@@ -32,8 +37,7 @@ namespace MattsMods.AdjustableTransformers
             }
         }
 
-        [HarmonyPatch(typeof(PowerTransformerSmallConfig))]
-        [HarmonyPatch("ConfigureBuildingTemplate")]
+        [HarmonyPatch(typeof(PowerTransformerSmallConfig), "ConfigureBuildingTemplate")]
         private static class Patch_PowerTransformerSmallConfig_ConfigureBuildingTemplate
         {
             public static void Postfix(GameObject go)
@@ -42,11 +46,31 @@ namespace MattsMods.AdjustableTransformers
             }
         }
 
-        private static class Patch_IntraObjectHandler
+        [HarmonyPatch(typeof(PowerTransformer), "UpdateJoulesLostPerSecond")]
+        private static class Patch_PowerTransformer_UpdateJoulesLostPerSecond
         {
-            public static bool Prefix(EventSystem.IntraObjectHandler<object> __instance)
+            public static void Postfix(PowerTransformer __instance, Battery ___battery)
             {
-                return false;
+                var pta = __instance.gameObject.GetComponent<PowerTransformerAdjustable>();
+                if (pta != null && ___battery.joulesLostPerSecond > 0)
+                {
+                    ___battery.joulesLostPerSecond *= pta.Efficiency;
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(Generator), "Efficiency", MethodType.Getter)]
+        private static class Patch_Generator_Efficiency
+        {
+            public static bool Prefix(Generator __instance, ref float __result)
+            {
+                var pta = __instance.gameObject.GetComponent<PowerTransformerAdjustable>();
+                if (__instance is PowerTransformer && pta != null)
+                {
+                    __result = Mathf.Max(pta.WattageRatio, 0);
+                    return false;
+                }
+                else return true;
             }
         }
     }

@@ -6,7 +6,7 @@ using static MattsMods.AdjustableTransformers.STRINGS.UI;
 namespace MattsMods.AdjustableTransformers
 {
     [SerializationConfig(MemberSerialization.OptIn)]
-    public class PowerTransformerAdjustable : KMonoBehaviour, ISim200ms, ISingleSliderControl, ISliderControl
+    public class PowerTransformerAdjustable : KMonoBehaviour, ISingleSliderControl, ISliderControl
     {
         private static readonly EventSystem.IntraObjectHandler<PowerTransformerAdjustable> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<PowerTransformerAdjustable>(OnCopySettings);
 
@@ -30,6 +30,10 @@ namespace MattsMods.AdjustableTransformers
         public float wattageVal = int.MaxValue;
 
         public float preferredDefaultWattage = int.MaxValue;
+
+        public float Wattage => wattageVal * 1000f;
+        public float WattageRatio => Wattage / powerTransformer.BaseWattageRating;
+        public float Efficiency => Traverse.Create(powerTransformer).Property<float>("Efficiency").Value;
 
         public int SliderDecimalPlaces(int i)
         {
@@ -88,6 +92,7 @@ namespace MattsMods.AdjustableTransformers
             }
         }
 
+        /*
         public void Sim200ms(float delta)
         {
             var pt = Traverse.Create(powerTransformer);
@@ -99,6 +104,7 @@ namespace MattsMods.AdjustableTransformers
                 battery.ConsumeEnergy(battery.JoulesAvailable - battery.Capacity, false);
             }
         }
+        */
 
         private float GetPreferredDefaultWattage ()
         {
