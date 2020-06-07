@@ -10,4 +10,11 @@
   <ItemGroup>
     <Content Include="Patches\WireBridgeHighWattage.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Unity.TextMeshPro">
+      <Private>False</Private>
+      <HintPath>$(GameLibDir)\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Content Include="Patches\LogicBitSelectorSideScreen.cs" />
+  </ItemGroup>
 </Project>

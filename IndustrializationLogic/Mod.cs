@@ -27,6 +27,7 @@ namespace MattsMods.Industrialization.Logic
         {
             LocString.CreateLocStringKeys(typeof(Strings.BUILDINGS));
             LocString.CreateLocStringKeys(typeof(Strings.RESEARCH));
+            LocString.CreateLocStringKeys(typeof(Strings.UI));
         }
 
     }

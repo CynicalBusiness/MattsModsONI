@@ -15,7 +15,7 @@ namespace MattsMods.Industrialization.Logic.Building
 
         public const string ID = "LogicCableJoint";
 
-        public static readonly HashedString JOINT_LOGIC_CABLE_IO_ID = new HashedString("JOINT_LOGIC_CABLE_IO");
+        public static readonly HashedString PORT_IO_ID = new HashedString("LogicCableJointIO");
 
 
         public override BuildingDef CreateBuildingDef()
@@ -27,8 +27,8 @@ namespace MattsMods.Industrialization.Logic.Building
                 anim: "heavywatttile_kanim", // TODO
                 hitpoints: HITPOINTS.TIER2,
                 construction_time: CONSTRUCTION_TIME_SECONDS.TIER1,
-                construction_mass: PipLib.PLUtil.ArrayConcat(CONSTRUCTION_MASS_KG.TIER3, CONSTRUCTION_MASS_KG.TIER1),
-                construction_materials: PipLib.PLUtil.ArrayConcat(REFINED_METALS, PLASTICS),
+                construction_mass: CONSTRUCTION_MASS_KG.TIER3,
+                construction_materials: REFINED_METALS,
                 melting_point: MELTING_POINT_KELVIN.TIER1,
                 build_location_rule: BuildLocationRule.HighWattBridgeTile, // TODO perhaps our own build rule?
                 decor: DECOR.PENALTY.TIER2,
@@ -48,17 +48,18 @@ namespace MattsMods.Industrialization.Logic.Building
             def.ObjectLayer = ObjectLayer.Building;
             def.SceneLayer = Grid.SceneLayer.LogicGates;
             def.ForegroundLayer = Grid.SceneLayer.TileMain;
+            def.AlwaysOperational = true;
             def.LogicInputPorts = new List<LogicPorts.Port>()
             {
                 LogicCableConfig.CableInputPort(
-                    JOINT_LOGIC_CABLE_IO_ID,
+                    PORT_IO_ID,
                     new CellOffset(-1, 0),
                     STRINGS.BUILDINGS.PREFABS.LOGICRIBBONBRIDGE.LOGIC_PORT,
                     STRINGS.BUILDINGS.PREFABS.LOGICRIBBONBRIDGE.LOGIC_PORT_ACTIVE,
                     STRINGS.BUILDINGS.PREFABS.LOGICRIBBONBRIDGE.LOGIC_PORT_INACTIVE,
                     false, false),
                 LogicCableConfig.CableInputPort(
-                    JOINT_LOGIC_CABLE_IO_ID,
+                    PORT_IO_ID,
                     new CellOffset(1, 0),
                     STRINGS.BUILDINGS.PREFABS.LOGICRIBBONBRIDGE.LOGIC_PORT,
                     STRINGS.BUILDINGS.PREFABS.LOGICRIBBONBRIDGE.LOGIC_PORT_ACTIVE,
@@ -72,7 +73,6 @@ namespace MattsMods.Industrialization.Logic.Building
         public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
         {
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), prefab_tag);
-            GeneratedBuildings.MakeBuildingAlwaysOperational(go);
 
             var sco = go.AddOrGet<SimCellOccupier>();
             sco.doReplaceElement = true;
