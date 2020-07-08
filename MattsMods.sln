@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustableTransformers", "AdjustableTransformers\AdjustableTransformers.csproj", "{76D2C931-F00E-499C-BA15-6810316B80A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationFundementals", "IndustrializationFundementals\IndustrializationFundementals.csproj", "{247F788E-6C54-483D-843A-C99F2187DFB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialAutomation", "IndustrialAutomation\IndustrialAutomation.csproj", "{92184F00-FD6B-4400-BE8F-3AC2A8B1B2BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialFoundation", "IndustrialFoundation\IndustrialFoundation.csproj", "{247F788E-6C54-483D-843A-C99F2187DFB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationAgriculture", "IndustrializationAgriculture\IndustrializationAgriculture.csproj", "{74D28F24-2CFD-4363-A57E-FB78AD423669}"
 EndProject
@@ -57,6 +59,11 @@ Global
         {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
         {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
         {0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+
+        {92184F00-FD6B-4400-BE8F-3AC2A8B1B2BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {92184F00-FD6B-4400-BE8F-3AC2A8B1B2BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {92184F00-FD6B-4400-BE8F-3AC2A8B1B2BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {92184F00-FD6B-4400-BE8F-3AC2A8B1B2BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

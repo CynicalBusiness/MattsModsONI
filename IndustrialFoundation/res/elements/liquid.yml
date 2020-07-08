@@ -1,0 +1,26 @@
+elements:
+  - elementId: MoltenEnamaledGlass
+    maxMass: 1400
+    liquidCompression: 1.2
+    speed: 60
+    minHorizontalFlow: 50
+    minVerticalFlow: 20
+    specificHeatCapacity: 0.2
+    thermalConductivity: 10
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 25
+    gasSurfaceAreaMultiplier: 1
+    lowTemp: 3200
+    highTemp: 4530
+    lowTempTransitionTarget: EnamaledGlass
+    highTempTransitionTarget: RockGas
+    defaultTemperature: 2000
+    defaultMass: 200
+    molarMass: 50
+    toxicity: 0
+    lightAbsorptionFactor: 0.7
+    tags:
+      - EmitsLight
+    isDisabled: false
+    state: Liquid
+    localizationID: STRINGS.ELEMENTS.MOLTENENAMALEDGLASS.NAME

@@ -1,0 +1,349 @@
+elements:
+  - elementId: Charcoal
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 1
+    highTemp: 973.15 # 300C
+    highTempTransitionTarget: Ash
+    defaultTemperature: 290
+    defaultMass: 100
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: ConsumableOre
+    tags:
+      - Coal
+      - CombustableSolid
+    buildMenuSort: 3
+    isDisabled: false
+    state: Solid
+    anim: carbon
+    color:
+      r: 50
+      g: 50
+      b: 50
+      a: 255
+    localizationID: STRINGS.ELEMENTS.CHARCOAL.NAME
+
+  - elementId: Ash
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.2
+    highTemp: 1683
+    highTempTransitionTarget: Magma
+    defaultTemperature: 290
+    defaultMass: 100
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: Filter
+    tags:
+      - Powder
+      - Unstable
+    buildMenuSort: 3
+    isDisabled: false
+    state: Solid
+    anim: limestone
+    color:
+      r: 200
+      g: 200
+      b: 200
+      a: 255
+    localizationID: STRINGS.ELEMENTS.ASH.NAME
+
+  - elementId: Sawdust
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.2
+    highTemp: 973.15
+    highTempTransitionTarget: Ash
+    defaultTemperature: 290
+    defaultMass: 100
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: Filter
+    tags:
+      - Powder
+      - Unstable
+    buildMenuSort: 3
+    isDisabled: false
+    state: Solid
+    anim: limestone
+    color:
+      r: 204
+      g: 164
+      b: 121
+      a: 255
+    localizationID: STRINGS.ELEMENTS.SAWDUST.NAME
+
+  - elementId: LogArbor
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1.2
+    liquidSurfaceAreaMultiplier: 1.2
+    gasSurfaceAreaMultiplier: 1.2
+    strength: 1
+    highTemp: 573.15 # 300C
+    highTempTransitionTarget: Charcoal
+    defaultTemperature: 290
+    defaultMass: 200
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: Log
+    tags:
+      - CombustableSolid
+    buildMenuSort: 1
+    isDisabled: false
+    state: Solid
+    attributes:
+      - attributeId: Decor
+        value: 0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: -25
+        isMultiplier: false
+    color:
+      r: 117
+      g: 72
+      b: 40
+      a: 255
+    localizationID: STRINGS.ELEMENTS.LOGARBOR.NAME
+
+  - elementId: LumberArbor
+    # TODO tuning
+    specificHeatCapacity: 1
+    thermalConductivity: 0.2
+    molarMass: 4
+    solidSurfaceAreaMultiplier: 1.2
+    liquidSurfaceAreaMultiplier: 1.2
+    gasSurfaceAreaMultiplier: 1.2
+    strength: 1
+    highTemp: 573.15 # 300C
+    highTempTransitionTarget: CharcoalSolid
+    defaultTemperature: 290
+    defaultMass: 200
+    maxMass: 300
+    lightAbsorptionFactor: 1
+    materialCategory: RawLumber
+    tags:
+      - BuildableAny
+      - CombustableSolid
+    buildMenuSort: 1
+    isDisabled: false
+    state: Solid
+    attributes:
+      - attributeId: Decor
+        value: 0.25
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: -25
+        isMultiplier: false
+    localizationID: STRINGS.ELEMENTS.LUMBERARBOR.NAME
+
+  - elementId: BrickRed
+    specificHeatCapacity: 0.75
+    thermalConductivity: 0.8
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 1
+    highTemp: 2123
+    highTempTransitionTarget: Magma
+    defaultTemperature: 242.15
+    defaultMass: 1000
+    maxMass: 2000
+    # hardnessTier: 4
+    hardness: 50
+    molarMass: 25
+    lightAbsorptionFactor: 1
+    materialCategory: BuildingBlock
+    tags:
+      - Crushable
+      - BuildableAny
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    attributes:
+      - attributeId: Decor
+        value: 0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: 200
+        isMultiplier: false
+    color:
+      r: 255
+      g: 115
+      b: 87
+      a: 255
+    localizationID: STRINGS.ELEMENTS.BRICKRED.NAME
+
+  - elementId: BrickGray
+    specificHeatCapacity: 0.75
+    thermalConductivity: 0.8
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 1
+    highTemp: 2123
+    highTempTransitionTarget: Magma
+    defaultTemperature: 242.15
+    defaultMass: 1000
+    maxMass: 2000
+    # hardnessTier: 4
+    hardness: 50
+    molarMass: 25
+    lightAbsorptionFactor: 1
+    materialCategory: BuildingBlock
+    tags:
+      - Crushable
+      - BuildableAny
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    attributes:
+      - attributeId: Decor
+        value: -0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: 200
+        isMultiplier: false
+    color:
+      r: 210
+      g: 210
+      b: 210
+      a: 255
+    localizationID: STRINGS.ELEMENTS.BRICKGRAY.NAME
+  - elementId: Concrete
+    specificHeatCapacity: 0.75
+    thermalConductivity: 0.8
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 1
+    highTemp: 2123
+    highTempTransitionTarget: Magma
+    defaultTemperature: 242.15
+    defaultMass: 1000
+    maxMass: 2000
+    # hardnessTier: 4
+    hardness: 50
+    molarMass: 25
+    lightAbsorptionFactor: 1
+    materialCategory: BuildingBlock
+    tags:
+      - BuildingBlockHeavy
+      - Crushable
+      - BuildableAny
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    attributes:
+      - attributeId: Decor
+        value: -0.1
+        isMultiplier: true
+      - attributeId: OverheatTemperature
+        value: 200
+        isMultiplier: false
+    color:
+      r: 230
+      g: 230
+      b: 230
+      a: 255
+    localizationID: STRINGS.ELEMENTS.CONCRETE.NAME
+  - elementId: SlagSolid
+    specificHeatCapacity: 0.449
+    thermalConductivity: 1
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.8
+    highTemp: 1808
+    highTempTransitionTarget: Magma
+    defaultTemperature: 242.15
+    defaultMass: 1000
+    maxMass: 2000
+    # hardnessTier: 4
+    hardness: 25
+    molarMass: 25
+    lightAbsorptionFactor: 1
+    materialCategory: Waste
+    tags:
+      - Crushable
+      - BuildableAny
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    color:
+      r: 220
+      g: 180
+      b: 180
+      a: 255
+    localizationID: STRINGS.ELEMENTS.SLAGSOLID.NAME
+  - elementId: Cement
+    specificHeatCapacity: 0.75
+    thermalConductivity: 0.8
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 0.1
+    highTemp: 2123
+    highTempTransitionTarget: Magma
+    defaultTemperature: 242.15
+    defaultMass: 1000
+    maxMass: 2000
+    # hardnessTier: 4
+    hardness: 25
+    molarMass: 25
+    lightAbsorptionFactor: 1
+    materialCategory: Powder
+    tags:
+      - IndustrialIngredient
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    color:
+      r: 200
+      g: 200
+      b: 200
+      a: 255
+    localizationID: STRINGS.ELEMENTS.CEMENT.NAME
+
+  - elementId: EnamaledGlass
+    specificHeatCapacity: 1.2
+    thermalConductivity: 40
+    solidSurfaceAreaMultiplier: 1
+    liquidSurfaceAreaMultiplier: 1
+    gasSurfaceAreaMultiplier: 1
+    strength: 1
+    highTemp: 3200
+    highTempTransitionTarget: MoltenEnamaledGlass
+    defaultTemperature: 300
+    defaultMass: 1000
+    maxMass: 800
+    # hardnessTier: 2
+    hardness: 250
+    molarMass: 20
+    lightAbsorptionFactor: 0.25
+    materialCategory: ManufacturedMaterial
+    tags:
+      - BuildableAny
+      - Transparent
+    buildMenuSort: 5
+    isDisabled: false
+    state: Solid
+    localizationID: STRINGS.ELEMENTS.ENAMALEDGLASS.NAME
