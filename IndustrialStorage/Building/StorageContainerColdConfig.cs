@@ -3,10 +3,10 @@ using PipLib.Building;
 using TUNING;
 using System.Collections.Generic;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
     [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageContainerConfig.ID)]
-    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE2)]
+    [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE2)]
     public class StorageContainerColdConfig : IBuildingConfig
     {
         public const string ID = "StorageContainerCold";

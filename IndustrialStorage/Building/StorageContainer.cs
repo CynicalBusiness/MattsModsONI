@@ -1,5 +1,5 @@
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
     public class StorageContainer : KMonoBehaviour
     {

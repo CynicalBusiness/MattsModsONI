@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
     public class StorageSecondaryMeter : KMonoBehaviour
     {

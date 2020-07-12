@@ -2,14 +2,14 @@
 using PipLib.Mod;
 using PipLib.Tech;
 
-namespace MattsMods.Industrialization.Storage
+namespace MattsMods.IndustrialStorage
 {
-    public sealed class IndustrializationStorageMod : PipMod
+    public sealed class Mod : PipMod
     {
 
-        public override string Name => "Industrialization: Heavy Storage";
+        public override string Name => "Industrial Storage";
 
-        public override string Prefix => "MM:Indy:Storage";
+        public override string Prefix => "MMIStorage";
 
         public const string TECH_STORAGE1 = "IndustrialStorageI";
         public const string TECH_STORAGE2 = "IndustrialStorageII";

@@ -1,37 +1,36 @@
 using PipLib.Building;
-using System.Collections.Generic;
 using TUNING;
+using System.Collections.Generic;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
-    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE1)]
-    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageLockerSmartConfig.ID)]
-    public class StorageCrateConfig : IBuildingConfig
+    [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE1)]
+    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageSiloConfig.ID)]
+    public class StorageSkipConfig : IBuildingConfig
     {
 
-        public const string ID = "StorageCrate";
+        public const string ID = "StorageSkip";
 
         public static readonly Tag TAG = TagManager.Create(ID);
 
         public static readonly List<Tag> STORAGE_TAG = new List<Tag>()
         {
-            GameTags.RefinedMetal,
-            GameTags.Alloy,
-            GameTags.IndustrialProduct,
-            GameTags.ManufacturedMaterial
+            GameTags.BuildableRaw,
+            GameTags.Metal,
+            GameTags.ConsumableOre
         };
 
-        public override BuildingDef CreateBuildingDef ()
+        public override BuildingDef CreateBuildingDef()
         {
             var def = BuildingTemplates.CreateBuildingDef(
                 id: ID,
                 width: 3,
                 height: 2,
-                anim: "storage_skip_kanim", // TODO
+                anim: "storageSkip_kanim",
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
-                construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER4,
-                construction_materials: MATERIALS.REFINED_METALS,
+                construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER5,
+                construction_materials: MATERIALS.RAW_METALS,
                 melting_point: BUILDINGS.MELTING_POINT_KELVIN.TIER1,
                 build_location_rule: BuildLocationRule.OnFloor,
                 decor: DECOR.PENALTY.TIER3,
@@ -43,7 +42,7 @@ namespace MattsMods.Industrialization.Storage.Building
             return def;
         }
 
-        public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
+        public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag tag)
         {
             Prioritizable.AddRef(go);
             var storage = go.AddOrGet<global::Storage>();
@@ -54,7 +53,10 @@ namespace MattsMods.Industrialization.Storage.Building
             storage.capacityKg *= 5;
             storage.storageFullMargin = STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
             storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
+
+            go.AddOrGet<StorageSecondaryMeter>().storage = storage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
+
             go.AddOrGet<StorageLocker>();
             go.AddOrGet<DropAllWorkable>();
         }
@@ -63,6 +65,6 @@ namespace MattsMods.Industrialization.Storage.Building
         {
             go.AddOrGetDef<StorageController.Def>();
         }
-
     }
+
 }

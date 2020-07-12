@@ -1,5 +1,5 @@
 
-using MattsMods.Industrialization.Storage.Building;
+using MattsMods.IndustrialStorage.Building;
 using Harmony;
 using System.Reflection;
 using UnityEngine;

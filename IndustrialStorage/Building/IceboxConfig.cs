@@ -3,11 +3,11 @@ using PipLib.Building;
 using TUNING;
 using System.Collections.Generic;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
 
     [BuildingInfo.OnPlanScreen(ID, "Food", AfterId = RefrigeratorConfig.ID)]
-    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE1)]
+    [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE1)]
     public class IceboxConfig : IBuildingConfig
     {
 

@@ -3,10 +3,10 @@ using TUNING;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
     [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = GasReservoirConfig.ID)]
-    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE_FLUIDS)]
+    [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE_FLUIDS)]
     public class StorageGasConfig : IBuildingConfig
     {
         public const string ID = "StorageGas";

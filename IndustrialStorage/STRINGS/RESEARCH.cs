@@ -1,6 +1,6 @@
 using static STRINGS.UI;
 
-namespace MattsMods.Industrialization.Storage.STRINGS
+namespace MattsMods.IndustrialStorage.STRINGS
 {
 
     public static class RESEARCH

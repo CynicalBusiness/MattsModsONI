@@ -2,7 +2,7 @@ using KSerialization;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
     [SerializationConfig(MemberSerialization.OptIn)]
     public class StorageCold : KMonoBehaviour, ISaveLoadable, IIntSliderControl, ISim1000ms

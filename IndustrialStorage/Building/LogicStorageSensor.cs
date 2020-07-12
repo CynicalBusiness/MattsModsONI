@@ -2,7 +2,7 @@
 using KSerialization;
 using UnityEngine;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
     [SerializationConfig(MemberSerialization.OptIn)]
     public class LogicStorageSensor : Switch, IThresholdSwitch, ISaveLoadable, ISim200ms

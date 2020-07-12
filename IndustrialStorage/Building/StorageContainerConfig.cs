@@ -2,9 +2,9 @@ using PipLib.Building;
 using TUNING;
 using System.Collections.Generic;
 
-namespace MattsMods.Industrialization.Storage.Building
+namespace MattsMods.IndustrialStorage.Building
 {
-    [BuildingInfo.TechRequirement(ID, IndustrializationStorageMod.TECH_STORAGE2)]
+    [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE2)]
     [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageSkipConfig.ID)]
     public class StorageContainerConfig : IBuildingConfig
     {
