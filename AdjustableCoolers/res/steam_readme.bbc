@@ -1,0 +1,21 @@
+[h1][i]Matt's Mods:[/i] Adjustable Coolers[/h1]
+
+[b]Adjust the cooling power of your Thermoregulators and Thermal Aquatuners![/b]
+Get the closer to what you actually need.
+
+This mod makes a few changes:
+[list]
+[*] Both the Thermoregulator and Thermal Aquatuner can now be adjusted to cool between 0 and -20C. Lower cooling will scale power and temperature output.
+[*] The Thermoregulator now consumes a maximum of 340W and the Thermal Aquatuner 1700W. (This is due to an increase in cooling power)
+[*] Power consumption and heat output of the Thermoregulator and Thermal Aquatuner will scale with cooling power settings
+[/list]
+
+...and that's it.
+This mod [i]should[/i] be safe to add to an existing save. Removing this mod will reset both buildings to their default -14C value.
+
+[h1]----[/h1]
+[b]Want your Transformers to be adjustable too?[/b]
+https://steamcommunity.com/sharedfiles/filedetails/?id=1885249412
+
+Check out some of my other mods, submit issues, or view the source code over on my [url=https://lab.vevox.io/games/oxygen-not-included/matts-mods]GitLab[/url]!
+[i]Myra ta Hayzel; Pal, Kifitae te Entra en na Loka.[/i]
