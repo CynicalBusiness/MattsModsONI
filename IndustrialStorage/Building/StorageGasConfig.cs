@@ -28,16 +28,16 @@ namespace MattsMods.IndustrialStorage.Building
 
         private static readonly List<LogicPorts.Port> OUTPUT_PORTS = new List<LogicPorts.Port>()
         {
-            LogicPorts.Port.OutputPort(LogicSwitch.PORT_ID, new CellOffset(1, 0), global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT, global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT_ACTIVE, global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT_INACTIVE)
+            LogicPorts.Port.OutputPort(LogicSwitch.PORT_ID, new CellOffset(2, 1), global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT, global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT_ACTIVE, global::STRINGS.BUILDINGS.PREFABS.LOGICPRESSURESENSORGAS.LOGIC_PORT_INACTIVE)
         };
 
         public override BuildingDef CreateBuildingDef()
         {
             var def = BuildingTemplates.CreateBuildingDef(
                 id: ID,
-                width: 3,
+                width: 4,
                 height: 2,
-                anim: "storage_skip_kanim",
+                anim: "storageGas_kanim",
                 hitpoints: BUILDINGS.HITPOINTS.TIER1,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER3,
                 construction_mass: new float[]{ BUILDINGS.CONSTRUCTION_MASS_KG.TIER4[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0] },
@@ -54,12 +54,14 @@ namespace MattsMods.IndustrialStorage.Building
             def.ViewMode = OverlayModes.GasConduits.ID;
             def.AudioCategory = AUDIO.HOLLOW_METAL;
             def.UtilityInputOffset = new CellOffset(-1, 1);
-            def.UtilityOutputOffset = new CellOffset(1, 0);
+            def.UtilityOutputOffset = new CellOffset(2, 1);
             def.PermittedRotations = PermittedRotations.FlipH;
             def.attachablePosition = new CellOffset(1, 0);
             def.AttachmentSlotTag = TAG;
             def.LogicInputPorts = INPUT_PORTS;
             def.LogicOutputPorts = OUTPUT_PORTS;
+            def.RequiresPowerInput = true;
+            def.EnergyConsumptionWhenActive = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER2;
 
             return def;
         }

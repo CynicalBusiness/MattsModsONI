@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0">
+        <file id="0" name="body_0.png" width="404" height="200" pivot_x="0.5" pivot_y="0"/>
+        <file id="1" name="ui_0.png" width="100" height="100" pivot_x="0.5" pivot_y="0"/>
+        <file id="2" name="place_0.png" width="404" height="200" pivot_x="0.5" pivot_y="0"/>
+    </folder>
+    <entity id="0" name="storageGas">
+        <animation id="0" name="on" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="off" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="working_pre" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="working_loop" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="working_post" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="5" name="buildup" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="6" name="ground_tiles" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body_0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="7" name="place" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="place">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" y="-7" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="8" name="ui" length="165" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="66">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="132">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="ui">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="9" name="meter" length="990" interval="33">
+            <mainline>
+                <key id="0"/>
+                <key id="1" time="33"/>
+                <key id="2" time="66"/>
+                <key id="3" time="99"/>
+                <key id="4" time="132"/>
+                <key id="5" time="165"/>
+                <key id="6" time="198"/>
+                <key id="7" time="231"/>
+                <key id="8" time="264"/>
+                <key id="9" time="297"/>
+                <key id="10" time="330"/>
+                <key id="11" time="363"/>
+                <key id="12" time="396"/>
+                <key id="13" time="429"/>
+                <key id="14" time="462"/>
+                <key id="15" time="495"/>
+                <key id="16" time="528"/>
+                <key id="17" time="561"/>
+                <key id="18" time="594"/>
+                <key id="19" time="627"/>
+                <key id="20" time="660"/>
+                <key id="21" time="693"/>
+                <key id="22" time="726"/>
+                <key id="23" time="759"/>
+                <key id="24" time="792"/>
+                <key id="25" time="825"/>
+                <key id="26" time="858"/>
+                <key id="27" time="891"/>
+                <key id="28" time="924"/>
+                <key id="29" time="957"/>
+            </mainline>
+        </animation>
+    </entity>
+</spriter_data>

@@ -18,7 +18,7 @@ namespace MattsMods.IndustrialStorage.STRINGS
             public static class INDUSTRIALSTORAGEII
             {
                 public static LocString NAME = FormatAsLink("Industrial Storage", nameof(INDUSTRIALSTORAGEII));
-                public static LocString DESC = "Huge industrial storage options for when most of the colony would otherwise be storage bins.";
+                public static LocString DESC = "Huge industrial storage options for when your colony is more storage bins then anything else.";
             }
 
             public static class COMPRESSEDFLUIDSTORAGE
