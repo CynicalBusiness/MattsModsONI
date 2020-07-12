@@ -10,7 +10,7 @@ This mod makes a few changes:
 [/list]
 
 ...and that's it. It's a simple one. No dependencies or order requirements.
-This mod [i]should[/i] be safe to add to an existing save, though all of your transformers will reset to zero due to a limitation in the base game's slider. Removing this mod will reset tranformers to their default value.
+This mod [i]should[/i] be safe to add to an existing save. Removing this mod will reset transformers to their default value.
 There exists a limitation in the base game's slider that prevents having more than three digits (plus a decimal place) in the value field. This is why the slider is in multiples of 0.1kW.
 
 [h1]----[/h1]
