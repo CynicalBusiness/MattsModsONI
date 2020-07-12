@@ -18,8 +18,8 @@ namespace MattsMods.IndustrialStorage.STRINGS
 
             public static class STORAGECRATE
             {
-                public static LocString NAME = FormatAsLink("Storage Crate", nameof(STORAGECRATE));
-                public static LocString DESC = $"Efficient bulk storage of {FormatAsLink("Refined Metals", GameTags.RefinedMetal.Name)} and {FormatAsLink("Manufactured Materials", GameTags.ManufacturedMaterial.Name)}";
+                public static LocString NAME = FormatAsLink("Storage Pallet", nameof(STORAGECRATE));
+                public static LocString DESC = $"Bulk storage of {FormatAsLink("Refined Metals", GameTags.RefinedMetal.Name)}, {FormatAsLink("Manufactured Materials", GameTags.ManufacturedMaterial.Name)}, and other manufactured goods.";
                 public static LocString EFFECT = "Bulk storage for manufactured goods.";
             }
 
@@ -42,9 +42,9 @@ namespace MattsMods.IndustrialStorage.STRINGS
 
             public static class STORAGECONTAINERCOLD
             {
-                public static LocString NAME = FormatAsLink("Cooled Shipping Container", nameof(STORAGECONTAINERCOLD));
+                public static LocString NAME = FormatAsLink("Insulated Shipping Container", nameof(STORAGECONTAINERCOLD));
                 public static LocString DESC = $"A variant of the {(STORAGECONTAINER.NAME.text)} that is insulated and has a configurable cooler to keep it below a set temperature. Heat removed from storage is pulled into the container itself.";
-                public static LocString EFFECT = "A large modular cold solid storage solution.";
+                public static LocString EFFECT = "A large modular and insulated solid storage solution.";
                 public static LocString LOGIC_PORT = "Enable/Disable Cooling";
                 public static LocString LOGIC_PORT_ACTIVE = FormatAsLink("Green Signal", AutomationState.Active.ToString()) + ": Cooling Active";
                 public static LocString LOGIC_PORT_INACTIVE = FormatAsLink("Red Signal", AutomationState.Standby.ToString()) + ": Cooling Inactive";

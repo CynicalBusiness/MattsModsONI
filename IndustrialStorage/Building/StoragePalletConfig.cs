@@ -6,10 +6,10 @@ namespace MattsMods.IndustrialStorage.Building
 {
     [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE1)]
     [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageLockerSmartConfig.ID)]
-    public class StorageCrateConfig : IBuildingConfig
+    public class StoragePalletConfig : IBuildingConfig
     {
 
-        public const string ID = "StorageCrate";
+        public const string ID = "StoragePallet";
 
         public static readonly Tag TAG = TagManager.Create(ID);
 
@@ -25,13 +25,13 @@ namespace MattsMods.IndustrialStorage.Building
         {
             var def = BuildingTemplates.CreateBuildingDef(
                 id: ID,
-                width: 3,
+                width: 2,
                 height: 2,
                 anim: "storage_skip_kanim", // TODO
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
-                construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER4,
-                construction_materials: MATERIALS.REFINED_METALS,
+                construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER3,
+                construction_materials: MATERIALS.RAW_METALS,
                 melting_point: BUILDINGS.MELTING_POINT_KELVIN.TIER1,
                 build_location_rule: BuildLocationRule.OnFloor,
                 decor: DECOR.PENALTY.TIER3,
@@ -51,7 +51,7 @@ namespace MattsMods.IndustrialStorage.Building
             storage.showDescriptor = true;
             storage.storageFilters = STORAGE_TAG;
             storage.allowItemRemoval = true;
-            storage.capacityKg *= 5;
+            storage.capacityKg *= 4;
             storage.storageFullMargin = STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
             storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;

@@ -5,7 +5,7 @@ using TUNING;
 namespace MattsMods.IndustrialStorage.Building
 {
     [BuildingInfo.TechRequirement(ID, Mod.TECH_STORAGE1)]
-    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StorageCrateConfig.ID)]
+    [BuildingInfo.OnPlanScreen(ID, "Base", AfterId = StoragePalletConfig.ID)]
     public class StorageSiloConfig : IBuildingConfig
     {
 
