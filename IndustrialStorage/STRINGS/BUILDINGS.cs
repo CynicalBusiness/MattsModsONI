@@ -16,10 +16,10 @@ namespace MattsMods.IndustrialStorage.STRINGS
             }
 
 
-            public static class STORAGECRATE
+            public static class STORAGEPALLET
             {
-                public static LocString NAME = FormatAsLink("Storage Pallet", nameof(STORAGECRATE));
-                public static LocString DESC = $"Bulk storage of {FormatAsLink("Refined Metals", GameTags.RefinedMetal.Name)}, {FormatAsLink("Manufactured Materials", GameTags.ManufacturedMaterial.Name)}, and other manufactured goods.";
+                public static LocString NAME = FormatAsLink("Storage Pallet", nameof(STORAGEPALLET));
+                public static LocString DESC = $"An empty pallet for bulk {FormatAsLink("Refined Metals", GameTags.RefinedMetal.Name)}, {FormatAsLink("Manufactured Materials", GameTags.ManufacturedMaterial.Name)}, and other manufactured goods.";
                 public static LocString EFFECT = "Bulk storage for manufactured goods.";
             }
 
