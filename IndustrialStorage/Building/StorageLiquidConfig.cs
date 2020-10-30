@@ -60,6 +60,8 @@ namespace MattsMods.IndustrialStorage.Building
             def.AttachmentSlotTag = TAG;
             def.LogicInputPorts = INPUT_PORTS;
             def.LogicOutputPorts = OUTPUT_PORTS;
+            def.RequiresPowerInput = true;
+            def.EnergyConsumptionWhenActive = BUILDINGS.ENERGY_CONSUMPTION_WHEN_ACTIVE.TIER2;
             return def;
         }
 

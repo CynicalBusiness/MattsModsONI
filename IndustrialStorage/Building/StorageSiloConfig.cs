@@ -24,7 +24,7 @@ namespace MattsMods.IndustrialStorage.Building
             var def = BuildingTemplates.CreateBuildingDef(
                 id: ID,
                 width: 2,
-                height: 3,
+                height: 4,
                 anim: "liquidreservoir_kanim", // TODO
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
@@ -48,7 +48,7 @@ namespace MattsMods.IndustrialStorage.Building
             storage.showDescriptor = true;
             storage.storageFilters = STORAGE_TAG;
             storage.allowItemRemoval = true;
-            storage.capacityKg *= 5;
+            storage.capacityKg *= 6;
             storage.storageFullMargin = STORAGE.STORAGE_LOCKER_FILLED_MARGIN;
             storage.fetchCategory = global::Storage.FetchCategory.GeneralStorage;
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
