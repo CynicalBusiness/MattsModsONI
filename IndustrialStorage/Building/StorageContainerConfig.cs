@@ -11,6 +11,9 @@ namespace MattsMods.IndustrialStorage.Building
 
         public const string ID = "StorageContainer";
 
+        public const int COLOR_MAX_VARIANTS = 4;
+        public const string COLOR_ANIM = "color";
+
         public static readonly Tag TAG = TagManager.Create(ID);
 
         private static readonly LogicPorts.Port OUTPUT_PORT = LogicPorts.Port.OutputPort(
@@ -26,7 +29,7 @@ namespace MattsMods.IndustrialStorage.Building
                 id: ID,
                 width: 6,
                 height: 3,
-                anim: "storage_container_kanim", // TODO
+                anim: "storageContainer_kanim", // TODO
                 hitpoints: BUILDINGS.HITPOINTS.TIER3,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER5,
                 construction_mass: new float[]{
@@ -44,6 +47,7 @@ namespace MattsMods.IndustrialStorage.Building
                 decor: DECOR.PENALTY.TIER4,
                 noise: NOISE_POLLUTION.NOISY.TIER0
             );
+            def.PermittedRotations = PermittedRotations.FlipH;
             def.InputConduitType = ConduitType.Solid;
             def.attachablePosition = new CellOffset(0, 0);
             def.AttachmentSlotTag = TAG;
@@ -56,7 +60,8 @@ namespace MattsMods.IndustrialStorage.Building
 
         public override void ConfigureBuildingTemplate(UnityEngine.GameObject go, Tag prefab_tag)
         {
-            // BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), TAG);
+            BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), TAG);
+            // TODO handle stacking better so the building needs a foundation, might need to patch BuildingDef.CheckFoundation or RequiresFoundation
 
             var storage = go.AddOrGet<global::Storage>();
             storage.showInUI = true;
@@ -71,6 +76,7 @@ namespace MattsMods.IndustrialStorage.Building
             go.AddOrGet<StorageContainer>();
             go.AddOrGet<LogicStorageSensor>();
             go.AddOrGet<DropAllWorkable>();
+            go.AddOrGet<UserNameable>();
 
             go.AddOrGet<CopyBuildingSettings>().copyGroupTag = TAG;
             go.AddOrGet<BuildingAttachPoint>().points = new BuildingAttachPoint.HardPoint[1]
