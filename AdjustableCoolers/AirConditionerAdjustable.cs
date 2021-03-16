@@ -1,6 +1,4 @@
-using Harmony;
 using KSerialization;
-using STRINGS;
 using static MattsMods.AdjustableCoolers.STRINGS.UI;
 
 namespace MattsMods.AdjustableCoolers
@@ -37,7 +35,7 @@ namespace MattsMods.AdjustableCoolers
 
         public int SliderDecimalPlaces(int i)
         {
-            return 1;
+            return 5;
         }
 
         public float GetSliderMin(int i)

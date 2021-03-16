@@ -3,6 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>{F9F5E36A-ED89-42B8-AE0F-A14720CED4B0}</ProjectGuid>
     <AssemblyName>AdjustableCoolers</AssemblyName>
+    <GameLibTarget>$(GameVersionLiveEX1)</GameLibTarget>
   </PropertyGroup>
   <Import Project="..\MattsMods.Macros.props" />
 </Project>

@@ -1,4 +1,5 @@
 [h1][i]Matt's Mods:[/i] Adjustable Transformers[/h1]
+[h3]Now compatible with Spaced Out![/h3]
 
 [b]Adjust the output wattage of your transformers![/b]
 No more chaining and mixing of transformers to get the wattage you need.
@@ -11,7 +12,6 @@ This mod makes a few changes:
 
 ...and that's it. It's a simple one. No dependencies or order requirements.
 This mod [i]should[/i] be safe to add to an existing save. Removing this mod will reset transformers to their default value.
-There exists a limitation in the base game's slider that prevents having more than three digits (plus a decimal place) in the value field. This is why the slider is in multiples of 0.1kW.
 
 [h1]----[/h1]
 [b]Want your Thermoregulators and Thermal Aquatuners to be adjustable too?[/b]

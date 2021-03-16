@@ -1,6 +1,7 @@
 using Harmony;
 using KSerialization;
 using STRINGS;
+using UnityEngine;
 using static MattsMods.AdjustableTransformers.STRINGS.UI;
 
 namespace MattsMods.AdjustableTransformers
@@ -31,13 +32,14 @@ namespace MattsMods.AdjustableTransformers
 
         public float preferredDefaultWattage = int.MaxValue;
 
-        public float Wattage => wattageVal * 1000f;
+        // public float Wattage => wattageVal * 1000f;
+        public float Wattage => wattageVal;
         public float WattageRatio => Wattage / powerTransformer.BaseWattageRating;
         public float Efficiency => Traverse.Create(powerTransformer).Property<float>("Efficiency").Value;
 
         public int SliderDecimalPlaces(int i)
         {
-            return 1;
+            return 8;
         }
 
         public float GetSliderMin(int i)
@@ -47,7 +49,8 @@ namespace MattsMods.AdjustableTransformers
 
         public float GetSliderMax(int i)
         {
-            return powerTransformer.BaseWattageRating / 1000f;
+            // return powerTransformer.BaseWattageRating / 1000f;
+            return powerTransformer.BaseWattageRating;
         }
 
         public float GetSliderValue(int i)
@@ -70,12 +73,13 @@ namespace MattsMods.AdjustableTransformers
 
         public void SetSliderValue(float val, int i)
         {
-            wattageVal = val;
+            SetWattage(val);
         }
 
         public void SetWattage (float watts)
         {
-            wattageVal = watts / 1000f;
+            // wattageVal = watts / 1000f;
+            wattageVal = Mathf.Floor(watts);
         }
 
         protected override void OnPrefabInit()
@@ -89,6 +93,11 @@ namespace MattsMods.AdjustableTransformers
             if (wattageVal == int.MaxValue)
             {
                 SetWattage(GetPreferredDefaultWattage());
+            }
+            else if (wattageVal <= 1 && wattageVal > 0)
+            {
+                // legacy transformer settings
+                SetWattage(wattageVal * GetPreferredDefaultWattage());
             }
         }
 
@@ -108,7 +117,7 @@ namespace MattsMods.AdjustableTransformers
 
         private float GetPreferredDefaultWattage ()
         {
-            return UnityEngine.Mathf.Min(powerTransformer.BaseWattageRating, preferredDefaultWattage);
+            return Mathf.Min(powerTransformer.BaseWattageRating, preferredDefaultWattage);
         }
 
         internal void OnCopySettings (object data)

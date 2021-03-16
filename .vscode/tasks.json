@@ -23,10 +23,11 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build (Release)",
+            "label": "build (AdjustableCoolers)",
             "type": "shell",
             "command": "msbuild",
             "args": [
+                "AdjustableCoolers/AdjustableCoolers.csproj",
                 "/p:GenerateFullPaths=true",
                 "/p:Configuration=Release",
                 "/t:Build",
@@ -38,5 +39,22 @@
             },
             "problemMatcher": "$msCompile"
         },
+        {
+            "label": "build (AdjustableTransformers)",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "AdjustableTransformers/AdjustableTransformers.csproj",
+                "/p:GenerateFullPaths=true",
+                "/p:Configuration=Release",
+                "/t:Build",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
     ]
 }
