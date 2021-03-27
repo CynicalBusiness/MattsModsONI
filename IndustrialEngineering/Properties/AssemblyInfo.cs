@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Industrialization.Electrical")]
+[assembly: AssemblyTitle("IndustrialEngineering")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Industrialization.Electrical")]
-[assembly: AssemblyCopyright("Copyright © Matthew Struble 2019")]
+[assembly: AssemblyProduct("IndustrialEngineering")]
+[assembly: AssemblyCopyright("Copyright © Matthew Struble 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.19491.0")]
+[assembly: AssemblyFileVersion("1.0.21122.0")]

@@ -18,6 +18,11 @@ namespace MattsMods.IndustrialFoundation
             public static readonly Tag Waste = TagManager.Create("Waste");
         }
 
+        public static class Techs
+        {
+            public const string CHEMICAL_SYNTHESIS = "ChemicalSynthesis";
+        }
+
         public override string Name => "Matt's Mods: Industrial Foundation";
 
         public override string Prefix => "MMIFoundation";
@@ -55,7 +60,11 @@ namespace MattsMods.IndustrialFoundation
 
         public override void Initialize()
         {
-            // // create techs
+            // create techs
+            var techChemSynth = TechTree.CreateTech(Techs.CHEMICAL_SYNTHESIS);
+            TechTree.AddRequirement(techChemSynth, TechTree.GetTech("Plastics"));
+
+
             // var techCarpentry1 = TechTree.CreateTech(TECH_CARPENTRY1);
             // TechTree.AddRequirement(techCarpentry1, TechTree.GetTech("BasicRefinement"));
             // TechTree.AddRequirement(techCarpentry1, TechTree.GetTech("Agriculture"));

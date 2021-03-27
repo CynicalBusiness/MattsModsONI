@@ -86,6 +86,7 @@ namespace MattsMods.IndustrialStorage.Building
             foreach (var cell in GetTopCells())
             {
                 Grid.FakeFloor[cell] = toggle;
+                Grid.Foundation[cell] = toggle;
             }
         }
 

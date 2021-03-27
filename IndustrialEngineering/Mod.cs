@@ -1,6 +1,6 @@
 using PipLib.Mod;
 
-namespace MattsMods.Industrialization.Electrical
+namespace MattsMods.IndustrialEngineering
 {
 
     public sealed class Mod : PipMod

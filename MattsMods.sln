@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialAutomation", "Ind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialFoundation", "IndustrialFoundation\IndustrialFoundation.csproj", "{247F788E-6C54-483D-843A-C99F2187DFB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialEngineering", "IndustrialEngineering\IndustrialEngineering.csproj", "{C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrialStorage", "IndustrialStorage\IndustrialStorage.csproj", "{46B8C6A3-B5AB-4C3A-9644-ADB0C1331EE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationAgriculture", "IndustrializationAgriculture\IndustrializationAgriculture.csproj", "{74D28F24-2CFD-4363-A57E-FB78AD423669}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationElectrical", "IndustrializationElectrical\IndustrializationElectrical.csproj", "{C1D09E89-7BE3-46F4-B487-B9D85FD94AB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustrializationLogic", "IndustrializationLogic\IndustrializationLogic.csproj", "{0F02A79D-8F29-4D4F-A037-77E13B1E0FA6}"
 EndProject
