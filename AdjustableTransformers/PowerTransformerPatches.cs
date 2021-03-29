@@ -73,5 +73,17 @@ namespace MattsMods.AdjustableTransformers
                 else return true;
             }
         }
+
+        [HarmonyPatch(typeof(CapacityControlSideScreen), "SetTarget")]
+        private static class Patch_CapacityControlSideScreen_SetTarget
+        {
+            public static void Postfix(ref string ___titleKey, IUserControlledCapacity ___target)
+            {
+                if (___target != null && ___target is PowerTransformerAdjustable)
+                {
+                    ___titleKey = ((PowerTransformerAdjustable)___target).SliderTitleKey;
+                }
+            }
+        }
     }
 }

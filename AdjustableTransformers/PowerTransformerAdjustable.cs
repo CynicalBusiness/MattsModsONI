@@ -7,7 +7,7 @@ using static MattsMods.AdjustableTransformers.STRINGS.UI;
 namespace MattsMods.AdjustableTransformers
 {
     [SerializationConfig(MemberSerialization.OptIn)]
-    public class PowerTransformerAdjustable : KMonoBehaviour, ISingleSliderControl, ISliderControl
+    public class PowerTransformerAdjustable : KMonoBehaviour, IUserControlledCapacity
     {
         private static readonly EventSystem.IntraObjectHandler<PowerTransformerAdjustable> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<PowerTransformerAdjustable>(OnCopySettings);
 
@@ -32,54 +32,31 @@ namespace MattsMods.AdjustableTransformers
 
         public float preferredDefaultWattage = int.MaxValue;
 
-        // public float Wattage => wattageVal * 1000f;
         public float Wattage => wattageVal;
+
         public float WattageRatio => Wattage / powerTransformer.BaseWattageRating;
         public float Efficiency => Traverse.Create(powerTransformer).Property<float>("Efficiency").Value;
+
+        public float MinCapacity => 0;
+        public float MaxCapacity => powerTransformer.BaseWattageRating;
+        public bool WholeValues => true;
+        public float AmountStored => powerTransformer.JoulesAvailable;
+
+        public string SliderTitleKey => KEY + ".TITLE";
+        public LocString CapacityUnits => UI.UNITSUFFIXES.ELECTRICAL.WATT;
+
+        public float UserMaxCapacity {
+            get {
+                return wattageVal;
+            }
+            set {
+                wattageVal = Mathf.Floor(value);
+            }
+        }
 
         public int SliderDecimalPlaces(int i)
         {
             return 8;
-        }
-
-        public float GetSliderMin(int i)
-        {
-            return 0;
-        }
-
-        public float GetSliderMax(int i)
-        {
-            // return powerTransformer.BaseWattageRating / 1000f;
-            return powerTransformer.BaseWattageRating;
-        }
-
-        public float GetSliderValue(int i)
-        {
-            return wattageVal;
-        }
-
-        public string GetSliderTooltipKey(int i)
-        {
-            return KEY + ".TOOLTIP";
-        }
-
-        public string GetSliderTooltip()
-        {
-            return string.Format(UISIDESCREENS.POWERTRANSFORMERWATTAGESIDESCREEN.TOOLTIP, wattageVal, SliderUnits);
-        }
-
-        public string SliderTitleKey => KEY + ".TITLE";
-        public string SliderUnits => UI.UNITSUFFIXES.ELECTRICAL.KILOWATT;
-
-        public void SetSliderValue(float val, int i)
-        {
-            SetWattage(val);
-        }
-
-        public void SetWattage (float watts)
-        {
-            // wattageVal = watts / 1000f;
-            wattageVal = Mathf.Floor(watts);
         }
 
         protected override void OnPrefabInit()
@@ -92,28 +69,14 @@ namespace MattsMods.AdjustableTransformers
         {
             if (wattageVal == int.MaxValue)
             {
-                SetWattage(GetPreferredDefaultWattage());
+                UserMaxCapacity = GetPreferredDefaultWattage();
             }
             else if (wattageVal <= 1 && wattageVal > 0)
             {
                 // legacy transformer settings
-                SetWattage(wattageVal * GetPreferredDefaultWattage());
+                UserMaxCapacity = wattageVal * GetPreferredDefaultWattage();
             }
         }
-
-        /*
-        public void Sim200ms(float delta)
-        {
-            var pt = Traverse.Create(powerTransformer);
-            var battery = pt.Field<Battery>("battery").Value;
-            battery.capacity = wattageVal * 1000f;
-            // battery.chargeWattage = WattageVal * 1000f;
-            if (battery.JoulesAvailable > battery.Capacity)
-            {
-                battery.ConsumeEnergy(battery.JoulesAvailable - battery.Capacity, false);
-            }
-        }
-        */
 
         private float GetPreferredDefaultWattage ()
         {
