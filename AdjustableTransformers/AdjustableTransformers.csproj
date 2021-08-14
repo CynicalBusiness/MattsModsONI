@@ -3,7 +3,6 @@
   <PropertyGroup>
     <ProjectGuid>{76D2C931-F00E-499C-BA15-6810316B80A5}</ProjectGuid>
     <AssemblyName>AdjustableTransformers</AssemblyName>
-    <GameLibTarget>$(GameVersionLiveEX1)</GameLibTarget>
   </PropertyGroup>
   <Import Project="..\MattsMods.Macros.props" />
 </Project>

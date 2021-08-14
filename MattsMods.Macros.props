@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <RootName>MattsMods</RootName>
-    <PipLibProjectDir>$(SolutionDir)..\PipLib\</PipLibProjectDir>
+    <PipLibProjectDir>$(SolutionDir)..\PipWorks\</PipLibProjectDir>
   </PropertyGroup>
   <Import Project="$(PipLibProjectDir)\PipLib.Macros.props" />
   <PropertyGroup>

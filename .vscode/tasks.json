@@ -4,15 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build vanilla",
             "type": "shell",
             "command": "msbuild",
             "args": [
-                // Ask msbuild to generate full paths for file names.
-                "/property:GenerateFullPaths=true",
                 "/t:build",
-                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "/p:GenerateFullPaths=true",
+                "/p:Flavor=Vanilla"
             ],
             "group": "build",
             "presentation": {
@@ -20,6 +19,38 @@
                 "reveal": "always"
             },
             // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build ex1",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/t:build",
+                "/consoleloggerparameters:NoSummary",
+                "/p:GenerateFullPaths=true",
+                "/p:Flavor=EX1"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+
+        {
+            "label": "build all",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/t:build",
+                "/consoleloggerparameters:NoSummary",
+                "/p:GenerateFullPaths=true"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
             "problemMatcher": "$msCompile"
         },
         {

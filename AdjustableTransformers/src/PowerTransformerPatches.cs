@@ -1,22 +1,10 @@
-using Harmony;
+using HarmonyLib;
 using UnityEngine;
 
 namespace MattsMods.AdjustableTransformers
 {
     public static class PowerTransformerPatches
     {
-        private static HarmonyInstance harmonyInstance;
-
-        public static void PrePatch (HarmonyInstance harmonyInstance)
-        {
-            PowerTransformerPatches.harmonyInstance = harmonyInstance;
-        }
-
-        public static void OnLoad ()
-        {
-            LocString.CreateLocStringKeys(typeof(MattsMods.AdjustableTransformers.STRINGS.UI));
-        }
-
         // === Large Power Transformer
         [HarmonyPatch(typeof(PowerTransformerConfig), "CreateBuildingDef")]
         private static class Patch_PowerTransformerConfig_CreateBuildingDef

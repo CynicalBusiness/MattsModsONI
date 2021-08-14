@@ -35,7 +35,7 @@ namespace MattsMods.AdjustableCoolers
 
         public int SliderDecimalPlaces(int i)
         {
-            return 5;
+            return 10;
         }
 
         public float GetSliderMin(int i)

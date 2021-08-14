@@ -1,8 +1,7 @@
-using Harmony;
+using HarmonyLib;
 using KSerialization;
 using STRINGS;
 using UnityEngine;
-using static MattsMods.AdjustableTransformers.STRINGS.UI;
 
 namespace MattsMods.AdjustableTransformers
 {
@@ -11,7 +10,7 @@ namespace MattsMods.AdjustableTransformers
     {
         private static readonly EventSystem.IntraObjectHandler<PowerTransformerAdjustable> OnCopySettingsDelegate = new EventSystem.IntraObjectHandler<PowerTransformerAdjustable>(OnCopySettings);
 
-        private static void OnCopySettings (PowerTransformerAdjustable comp, object data)
+        private static void OnCopySettings(PowerTransformerAdjustable comp, object data)
         {
             comp.OnCopySettings(data);
         }
@@ -28,28 +27,31 @@ namespace MattsMods.AdjustableTransformers
         /// The value this slider is currently set to
         /// </summary>
         [Serialize]
-        public float wattageVal = int.MaxValue;
+        public float wattageVal = float.MaxValue;
 
-        public float preferredDefaultWattage = int.MaxValue;
+        public float preferredDefaultWattage = float.MaxValue;
 
         public float Wattage => wattageVal;
 
         public float WattageRatio => Wattage / powerTransformer.BaseWattageRating;
         public float Efficiency => Traverse.Create(powerTransformer).Property<float>("Efficiency").Value;
 
-        public float MinCapacity => 0;
+        public float MinCapacity { get; } = 0;
         public float MaxCapacity => powerTransformer.BaseWattageRating;
-        public bool WholeValues => true;
+        public bool WholeValues { get; } = true;
         public float AmountStored => powerTransformer.JoulesAvailable;
 
         public string SliderTitleKey => KEY + ".TITLE";
         public LocString CapacityUnits => UI.UNITSUFFIXES.ELECTRICAL.WATT;
 
-        public float UserMaxCapacity {
-            get {
+        public float UserMaxCapacity
+        {
+            get
+            {
                 return wattageVal;
             }
-            set {
+            set
+            {
                 wattageVal = Mathf.Floor(value);
             }
         }
@@ -65,9 +67,9 @@ namespace MattsMods.AdjustableTransformers
             Subscribe<PowerTransformerAdjustable>((int)GameHashes.CopySettings, OnCopySettingsDelegate);
         }
 
-        protected override void OnSpawn ()
+        protected override void OnSpawn()
         {
-            if (wattageVal == int.MaxValue)
+            if (wattageVal >= powerTransformer.BaseWattageRating)
             {
                 UserMaxCapacity = GetPreferredDefaultWattage();
             }
@@ -78,12 +80,12 @@ namespace MattsMods.AdjustableTransformers
             }
         }
 
-        private float GetPreferredDefaultWattage ()
+        private float GetPreferredDefaultWattage()
         {
             return Mathf.Min(powerTransformer.BaseWattageRating, preferredDefaultWattage);
         }
 
-        internal void OnCopySettings (object data)
+        internal void OnCopySettings(object data)
         {
             PowerTransformerAdjustable comp = ((UnityEngine.GameObject)data).GetComponent<PowerTransformerAdjustable>();
             if (comp != null)

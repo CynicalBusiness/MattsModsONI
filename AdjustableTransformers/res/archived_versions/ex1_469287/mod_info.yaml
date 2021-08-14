@@ -1,4 +1,4 @@
 version: "1.1.0"
 APIVersion: 2
 supportedContent: ALL
-minimumSupportedBuild: 469301
+minimumSupportedBuild: 469287
