@@ -163,7 +163,6 @@ namespace MattsMods.IndustrialStorage.Building
 
         private void UpdateLogicCircuit ()
         {
-            Debug.LogFormat("container logic update {0} {1}", switchedOn, (operational == null || operational.IsOperational));
             logicPorts.SendSignal(LogicSwitch.PORT_ID, switchedOn && (operational == null || operational.IsOperational) ? 1 : 0);
             this.UpdateVisualState(false);
             this.UpdateSwitchStatus();

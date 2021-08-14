@@ -1,16 +1,69 @@
+using System;
+using KSerialization;
 
 namespace MattsMods.IndustrialStorage.Building
 {
+    [SerializationConfig(MemberSerialization.OptIn)]
     public class StorageContainer : KMonoBehaviour
     {
 
+        private int totalColors = 5;
 
+        [Serialize]
+        private int currentColor = -1;
+
+        private VariantController colorVariants;
+
+        public int TotalColors
+        {
+            get
+            {
+                return totalColors;
+            }
+            set
+            {
+                totalColors = value;
+                UpdateColorController();
+            }
+        }
+
+        public int CurrentColor
+        {
+            get {
+                return currentColor;
+            }
+            set {
+                currentColor = value;
+                UpdateColor();
+            }
+        }
+
+        /// <summary>
+        /// Sets a random color variant for this container.
+        /// </summary>
+        public void SetRandomVariant ()
+        {
+            SetRandomVariant(null);
+        }
+
+        /// <summary>
+        /// Sets a random color variant for this container using the specified random.
+        /// </summary>
+        /// <param name="random">The random to use</param>
+        public void SetRandomVariant (Random random)
+        {
+            if (random == null) random = new Random();
+            CurrentColor = random.Next(0, totalColors);
+        }
 
         protected override void OnPrefabInit()
         {
             base.OnPrefabInit();
             SetLadders(true);
             SetFloor(true);
+
+            UpdateColorController();
+            UpdateColor();
         }
 
         protected override void OnCleanUp()
@@ -24,7 +77,7 @@ namespace MattsMods.IndustrialStorage.Building
         {
             foreach (var cell in GetLeftCells())
             {
-                Grid.HasLadder[Grid.OffsetCell(cell, new CellOffset(1, 0))] = toggle;
+                Grid.HasLadder[cell] = toggle;
             }
         }
 
@@ -33,6 +86,7 @@ namespace MattsMods.IndustrialStorage.Building
             foreach (var cell in GetTopCells())
             {
                 Grid.FakeFloor[cell] = toggle;
+                Grid.Foundation[cell] = toggle;
             }
         }
 
@@ -81,6 +135,23 @@ namespace MattsMods.IndustrialStorage.Building
                 cells[i] = Grid.OffsetCell(Grid.PosToCell(this), new CellOffset(left + i, buildingDef.HeightInCells - 1));
             }
             return cells;
+        }
+
+        private void UpdateColorController ()
+        {
+            colorVariants = new VariantController(this, "color_target", "color", totalColors, Grid.SceneLayer.BuildingBack);
+        }
+
+        private void UpdateColor ()
+        {
+            if (currentColor < 0)
+            {
+                SetRandomVariant();
+            }
+            else
+            {
+                colorVariants.SetVariant(CurrentColor);
+            }
         }
     }
 }

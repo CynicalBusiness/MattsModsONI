@@ -18,7 +18,9 @@ namespace MattsMods.IndustrialStorage.Building
             GameTags.RefinedMetal,
             GameTags.Alloy,
             GameTags.IndustrialProduct,
-            GameTags.ManufacturedMaterial
+            GameTags.ManufacturedMaterial,
+            GameTags.Artifact,
+            GameTags.MiscPickupable
         };
 
         public override BuildingDef CreateBuildingDef ()
@@ -27,11 +29,17 @@ namespace MattsMods.IndustrialStorage.Building
                 id: ID,
                 width: 2,
                 height: 2,
-                anim: "storage_skip_kanim", // TODO
+                anim: "storagePallet_kanim",
                 hitpoints: BUILDINGS.HITPOINTS.TIER2,
                 construction_time: BUILDINGS.CONSTRUCTION_TIME_SECONDS.TIER2,
-                construction_mass: BUILDINGS.CONSTRUCTION_MASS_KG.TIER3,
-                construction_materials: MATERIALS.RAW_METALS,
+                construction_mass: new float[]{
+                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0],
+                    BUILDINGS.CONSTRUCTION_MASS_KG.TIER2[0]
+                },
+                construction_materials: new string[]{
+                    MATERIALS.RAW_METALS[0],
+                    MATERIALS.WOOD
+                },
                 melting_point: BUILDINGS.MELTING_POINT_KELVIN.TIER1,
                 build_location_rule: BuildLocationRule.OnFloor,
                 decor: DECOR.PENALTY.TIER3,

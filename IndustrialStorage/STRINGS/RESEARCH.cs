@@ -12,7 +12,7 @@ namespace MattsMods.IndustrialStorage.STRINGS
             public static class INDUSTRIALSTORAGEI
             {
                 public static LocString NAME = FormatAsLink("Bulk Storage", nameof(INDUSTRIALSTORAGEI));
-                public static LocString DESC = "Larger structures designed for specialized bulk storage.";
+                public static LocString DESC = "Specially-designed structures aimed at storing specialized goods more efficiently.";
             }
 
             public static class INDUSTRIALSTORAGEII

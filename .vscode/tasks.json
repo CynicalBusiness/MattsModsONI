@@ -4,15 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build vanilla",
             "type": "shell",
             "command": "msbuild",
             "args": [
-                // Ask msbuild to generate full paths for file names.
-                "/property:GenerateFullPaths=true",
                 "/t:build",
-                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "/p:GenerateFullPaths=true",
+                "/p:Flavor=Vanilla"
             ],
             "group": "build",
             "presentation": {
@@ -23,10 +22,43 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build (Release)",
+            "label": "build ex1",
             "type": "shell",
             "command": "msbuild",
             "args": [
+                "/t:build",
+                "/consoleloggerparameters:NoSummary",
+                "/p:GenerateFullPaths=true",
+                "/p:Flavor=EX1"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+
+        {
+            "label": "build all",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/t:build",
+                "/consoleloggerparameters:NoSummary",
+                "/p:GenerateFullPaths=true"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build (AdjustableCoolers)",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "AdjustableCoolers/AdjustableCoolers.csproj",
                 "/p:GenerateFullPaths=true",
                 "/p:Configuration=Release",
                 "/t:Build",
@@ -38,5 +70,22 @@
             },
             "problemMatcher": "$msCompile"
         },
+        {
+            "label": "build (AdjustableTransformers)",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "AdjustableTransformers/AdjustableTransformers.csproj",
+                "/p:GenerateFullPaths=true",
+                "/p:Configuration=Release",
+                "/t:Build",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
     ]
 }
